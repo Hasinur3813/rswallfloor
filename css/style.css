@@ -286,7 +286,7 @@ h1{
     font-size: 16px;
 }
 
- .choose-us-content, .slider-area{
+ .choose-us-content, .title_video{
     margin-top:50px !important;
 }
  .choose-us-content ul li{
@@ -297,6 +297,10 @@ h1{
 .choose-us-content ul li span{
     font-weight: 700;
     color:var(--primary);
+}
+
+.title_video iframe{
+    height: 400px !important;
 }
 /* portfolio section */
 
