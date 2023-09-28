@@ -28,25 +28,25 @@ function counting(){
 
 // toggle menu for dropdown items
 
-// const arrow = document.querySelector('.fa-angle-down');
-// const dropdownBox = document.querySelector('.dropdown-items');
-// arrow.onclick = toggleMenu;
+const arrow = document.querySelector('.fa-angle-down');
+const dropdownBox = document.querySelector('.dropdown-items');
+arrow.onclick = toggleMenu;
 
-// // show and hide dropdown by clicking on arrow button
-// function toggleMenu(){
-//     dropdownBox.classList.toggle('showDropdown');
-//     arrow.classList.toggle('rotateAngle');
-//     removeDropdown();
-// }
+// show and hide dropdown by clicking on arrow button
+function toggleMenu(){
+    dropdownBox.classList.toggle('showDropdown');
+    arrow.classList.toggle('rotateAngle');
+    removeDropdown();
+}
 
-// // remove dropdown by clicking on window
-// function removeDropdown(){
-//     function hideDropdown(event){
-//         if(!dropdownBox.contains(event.target) && !arrow.contains(event.target)){
-//             dropdownBox.classList.toggle('showDropdown');
-//             arrow.classList.remove('rotateAngle'); 
-//             window.removeEventListener('click',hideDropdown);
-//         }
-//     }
-//     window.addEventListener('click',hideDropdown);
-// }
+// remove dropdown by clicking on window
+function removeDropdown(){
+    function hideDropdown(event){
+        if(!dropdownBox.contains(event.target) && !arrow.contains(event.target)){
+            dropdownBox.classList.toggle('showDropdown');
+            arrow.classList.remove('rotateAngle'); 
+            window.removeEventListener('click',hideDropdown);
+        }
+    }
+    window.addEventListener('click',hideDropdown);
+}
