@@ -89,7 +89,7 @@ h1{
 
 .main-header-box{
     position: relative;
-    background-image: url('/img/header-bg.jpg');
+    background-image: url('./img/header-bg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -177,7 +177,7 @@ h1{
 /* =========== counter area =========== */
 .counter-area{
     padding-bottom: 60px;
-    background-image: url('/img/bg.gif');
+    background-image: url('./img/bg.gif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
