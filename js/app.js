@@ -50,3 +50,25 @@ function removeDropdown(){
     }
     window.addEventListener('click',hideDropdown);
 }
+
+let photoGallery = document.querySelector('.photo_gallery');
+
+let i = 1;
+
+function appendItem() {
+    if (i <= 50) {
+        let div = document.createElement('div');
+        div.classList.add('col-md-3', 'col-4', 'mb-3');
+        let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(2)" alt="portfolio${i}.jpg" class="w-100 item">`;
+        div.innerHTML = item;
+        photoGallery.appendChild(div);
+        
+        i++; // Increment i to append the next item in the next iteration
+    } else {
+        clearInterval(interval); // Stop the interval when i reaches 51 (after 50 items)
+        i = 1;
+    }
+}
+
+// Call the appendItem function every second
+const interval = setInterval(appendItem, 100);

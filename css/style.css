@@ -1,7 +1,7 @@
 
 @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
 
-    --black: #0a1929;
+
 *{
     margin: 0;
     padding: 0;
@@ -293,11 +293,8 @@ h1{
     z-index: 1;
     left: 10px;
     top: 50px;
-<<<<<<< HEAD
     background: var(--primary);
-=======
     background: var(--black);
->>>>>>> d83a640df2dad490f69d5eef160855ffc80c4f58
     border-radius: 5px;
     transition: 0.3s;
     width: 120px;
@@ -329,7 +326,6 @@ h1{
     transform: rotate(180deg) !important;
     transition: 0.3s;
 }
-<<<<<<< HEAD
 .shape {
     background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
     animation: morph 8s ease-in-out infinite;
@@ -358,5 +354,7 @@ h1{
       background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
     } 
   }
-=======
->>>>>>> d83a640df2dad490f69d5eef160855ffc80c4f58
+
+  .item{
+    border-radius: 5px;
+  }
