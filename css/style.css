@@ -176,11 +176,7 @@ h1{
 
 /* =========== counter area =========== */
 .counter-area{
-<<<<<<< HEAD
     padding: 50px 0;
-=======
-    padding-bottom: 60px;
->>>>>>> a3e23b19e0bb32fa1141830339bf061f5770f2cc
     background-image: url('../img/bg.gif');
     background-position: center;
     background-repeat: no-repeat;
