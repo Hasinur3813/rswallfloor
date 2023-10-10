@@ -74,7 +74,7 @@ function appendItem() {
     if (i <= 20) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
-        let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(2)" alt="portfolio${i}.jpg" class="w-100 item">`;
+        let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
         div.innerHTML = item;
         photoGallery.appendChild(div);
         
