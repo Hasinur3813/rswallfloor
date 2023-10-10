@@ -1,6 +1,21 @@
 'use strict';
 
-// counting function
+
+const navItem = document.querySelectorAll('.nav-menu-item');
+
+navItem.forEach(item => {
+    item.addEventListener('click', () => {
+        // Remove the 'active' class from all items
+        navItem.forEach(otherItem => {
+            otherItem.classList.remove('active');
+        });
+
+        // Add the 'active' class to the clicked item
+        item.classList.add('active');
+    });
+});
+
+// counting function for counter area
 
 const counterElement = document.querySelectorAll('.element span');
 
@@ -56,9 +71,9 @@ let photoGallery = document.querySelector('.photo_gallery');
 let i = 1;
 
 function appendItem() {
-    if (i <= 50) {
+    if (i <= 20) {
         let div = document.createElement('div');
-        div.classList.add('col-md-3', 'col-4', 'mb-3');
+        div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(2)" alt="portfolio${i}.jpg" class="w-100 item">`;
         div.innerHTML = item;
         photoGallery.appendChild(div);
