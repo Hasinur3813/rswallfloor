@@ -10,7 +10,7 @@
 body{
     background: var(--black) !important;
     font-family: 'adorshoLipi', Arial, sans-serif !important;
-    overflow-x:hidden;
+    overflow-x:visible !important;
 }
 
 :root {
@@ -87,14 +87,14 @@ h1{
 
 /* =========== main header area =========== */
 
-.main-header-box{
-    position: relative;
-    background-image: url('../img/header-bg.jpg');
+.main-header{
+    background-image: linear-gradient(#110a0a96,#110a0a96),url(../img/header-bg.jpg) ;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     animation: zoomAnimation 40s ease-in-out infinite; 
     animation-delay: 2s;
+    padding: 80px;
 }
 @keyframes zoomAnimation {
     0% {
@@ -115,14 +115,7 @@ h1{
     }
     
   }
-.header-overlay{
-    background-image: linear-gradient(#110a0a96,#110a0a96);
-}
-.header-content{
-    margin-top: 100px;
-    padding-bottom: 150px;
 
-}
 @media screen and (min-width:1400px) {
     .header-content{
         margin-top: 150px;
@@ -176,7 +169,7 @@ h1{
 
 /* =========== counter area =========== */
 .counter-area{
-    padding: 50px 0;
+    padding: 50px 0 80px;
     background-image: url('../img/bg.gif');
     background-position: center;
     background-repeat: no-repeat;
@@ -192,14 +185,12 @@ h1{
 }
 .element{
     background: var(--secondary);
-    padding: 20px 0;
+    padding: 40px 0;
     border-radius: 10px;
     position:relative;
     z-index: 1;
     overflow: hidden;
     transition: 0.3s;
-    /* margin-right: 30px; */
-    /* width: 200px; */
 }
 .element span{
     font-size: 25px;

@@ -30,7 +30,7 @@ function counting(){
 
 const arrow = document.querySelector('.fa-angle-down');
 const dropdownBox = document.querySelector('.dropdown-items');
-arrow.onclick = toggleMenu;
+// arrow.onclick = toggleMenu;
 
 // show and hide dropdown by clicking on arrow button
 function toggleMenu(){
