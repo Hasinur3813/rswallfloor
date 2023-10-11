@@ -12,7 +12,7 @@
     <link href="https://fonts.maateen.me/apona-lohit/font.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-md">
             <div class="container">
               <a class="navbar-brand" href="#">
                 <img alt="logo.png" src="./img/logo.png" class="w-100" />
@@ -102,7 +102,7 @@
           </div>
           <div class="col-md-6 title_video">
             <div class="iframe w-100 h-100">
-              <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8" scrolling="no" frameborder="0" allowFullScreen="true"></iframe>
+              <!-- <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8" scrolling="no" frameborder="0" allowFullScreen="true"></iframe> -->
             </div>
           </div>
         </div>
@@ -124,9 +124,26 @@
           </div>
         </div>
 
-        <div class="row photo_gallery justify-content-center">
+        <div class="row photo_gallery justify-content-center"></div>
+      </div>
 
-       </div>
+      <div class="modal-box d-flex justify-content-center align-items-center" id="modal-box">
+        <div class="modal-inner rounded col-10 col-md-6">
+          <div class="modal-header p-2">
+            <h5 class="image-number">1/20</h5>
+
+            <div class="me-3 d-flex gap-3">
+              <a href="#"><i class="fa-solid fa-download"></i></a>
+              <span class="close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+          </div>
+          <div class="modal-image position-relative">
+            <i class="fa-solid fa-arrow-left position-absolute prev" onclick="plusSlide(-1)"></i>
+            <img src="./portfolio/portfolio(1).jpg" class="img-fluid border rounded" id="modal-image"/>
+            <i class="fa-solid fa-arrow-right position-absolute next" onclick="plusSlide(1)"></i>
+          </div>
+        </div>
+ 
       </div>
     </div>
     <script src="./js/app.js"></script>

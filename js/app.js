@@ -71,7 +71,7 @@ let photoGallery = document.querySelector('.photo_gallery');
 let i = 1;
 
 function appendItem() {
-    if (i <= 20) {
+    if (i <= 30) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
@@ -87,3 +87,44 @@ function appendItem() {
 
 // Call the appendItem function every second
 const interval = setInterval(appendItem, 100);
+
+
+const modalBox = document.getElementById('modal-box');
+const imageNumber = document.querySelector('.image-number');
+const modalImage = document.getElementById('modal-image');
+
+function openModal(){
+    modalBox.style.opacity = '1';
+    modalBox.style.pointerEvents ='fill';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+    modalBox.style.opacity = '0';
+    modalBox.style.pointerEvents ='none';
+    document.body.style.overflow = 'auto';
+    slideIndex = 1;
+}
+
+let slideIndex = 1;
+
+function currentSlide (n){
+    slideIndex = n;
+    showSlide(slideIndex);
+}
+
+
+function showSlide(n){
+    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
+    let mainImgSource = `./portfolio/portfolio(${n}).jpg`;
+    modalImage.src = mainImgSource;
+    imageNumber.innerHTML = `${n}/${thumbnailBox.length}`
+
+}
+
+function plusSlide(n){
+    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
+    let mainImgSource = `./portfolio/portfolio(${slideIndex+=n}).jpg`;
+    modalImage.src = mainImgSource;
+    imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`
+}
