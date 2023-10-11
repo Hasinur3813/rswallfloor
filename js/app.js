@@ -95,13 +95,14 @@ const modalImage = document.getElementById('modal-image');
 
 function openModal(){
     modalBox.style.opacity = '1';
+    modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
-    showSlide(slideIndex);
 }
 
 function closeModal(){
     modalBox.style.opacity = '0';
+    modalBox.style.zIndex = '-1';
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
     slideIndex = 1;
@@ -111,6 +112,7 @@ let slideIndex = 1;
 
 function currentSlide (n){
     slideIndex = n;
+    showSlide(slideIndex);
 }
 
 
