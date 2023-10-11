@@ -374,9 +374,10 @@ nav{
 
 .modal-inner{
     background: white;
+    transition: 0.3s;
 }
 .modal-header a{
-    font-size: 15px;
+    font-size: 18px;
     animation: download 2s linear infinite;
     transition:0.3s;
     color: var(--primary);
@@ -396,7 +397,7 @@ nav{
     }
 }
 .modal-header span i{
-    font-size: 22px;
+    font-size: 26px;
     color: var(--secondary);
     transition: 0.2s;
 }
@@ -407,6 +408,7 @@ nav{
 .modal-header .image-number{
     font-weight: 600;
     margin-left: 10px;
+    color: var(--secondary)
 }
 .modal-image i{
     top: 45%;
@@ -414,6 +416,7 @@ nav{
     background: #f96a9ca2;
     padding: 5px;
     transition: 0.3s;
+    font-size: 26px;
 }
 
 .modal-image i:hover{

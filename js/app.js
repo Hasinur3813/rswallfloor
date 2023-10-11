@@ -89,16 +89,7 @@ function appendItem() {
 const interval = setInterval(appendItem, 100);
 
 
-const modalBox = document.getElementById('modal-box');
-const imageNumber = document.querySelector('.image-number');
-const modalImage = document.getElementById('modal-image');
 
-function openModal(){
-    modalBox.style.opacity = '1';
-    modalBox.style.zIndex = '1';
-    modalBox.style.pointerEvents ='fill';
-    document.body.style.overflow = 'hidden';
-}
 
 function closeModal(){
     modalBox.style.opacity = '0';
@@ -108,21 +99,30 @@ function closeModal(){
     slideIndex = 1;
 }
 
+const modalBox = document.getElementById('modal-box');
+const imageNumber = document.querySelector('.image-number');
+const modalImage = document.getElementById('modal-image');
+
+
+function openModal(){
+    modalBox.style.opacity = '1';
+    modalBox.style.zIndex = '1';
+    modalBox.style.pointerEvents ='fill';
+    document.body.style.overflow = 'hidden';
+}
 let slideIndex = 1;
 
 function currentSlide (n){
     slideIndex = n;
     showSlide(slideIndex);
+   
 }
 
-
 function showSlide(n){
-
-    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
-    let mainImgSource = `./portfolio/portfolio(${n}).jpg`;
-    modalImage.src = mainImgSource;
-    imageNumber.innerHTML = `${n}/${thumbnailBox.length}`
-
+        const thumbnailBox = document.querySelectorAll('.thumbnail-box');
+        let mainImgSource = `./portfolio/portfolio(${n}).jpg`;
+            modalImage.src = mainImgSource;
+        imageNumber.innerHTML = `${n}/${thumbnailBox.length}`
 }
 
 function plusSlide(n){
