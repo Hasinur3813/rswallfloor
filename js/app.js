@@ -97,6 +97,7 @@ function openModal(){
     modalBox.style.opacity = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
+    showSlide(slideIndex);
 }
 
 function closeModal(){
@@ -110,11 +111,11 @@ let slideIndex = 1;
 
 function currentSlide (n){
     slideIndex = n;
-    showSlide(slideIndex);
 }
 
 
 function showSlide(n){
+
     const thumbnailBox = document.querySelectorAll('.thumbnail-box');
     let mainImgSource = `./portfolio/portfolio(${n}).jpg`;
     modalImage.src = mainImgSource;
@@ -126,5 +127,6 @@ function plusSlide(n){
     const thumbnailBox = document.querySelectorAll('.thumbnail-box');
     let mainImgSource = `./portfolio/portfolio(${slideIndex+=n}).jpg`;
     modalImage.src = mainImgSource;
-    imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`
+    imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+    console.log(slideIndex)
 }
