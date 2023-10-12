@@ -120,15 +120,17 @@ function currentSlide (n){
 
 function showSlide(n){
         const thumbnailBox = document.querySelectorAll('.thumbnail-box');
-        let mainImgSource = `./portfolio/portfolio(${n}).jpg`;
+        let mainImgSource = `./portfolio/thumbnail/thumbnail(${n}).jpg`;
             modalImage.src = mainImgSource;
+            modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${n}/${thumbnailBox.length}`
 }
 
 function plusSlide(n){
     const thumbnailBox = document.querySelectorAll('.thumbnail-box');
-    let mainImgSource = `./portfolio/portfolio(${slideIndex+=n}).jpg`;
+    let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex+=n}).jpg`;
     modalImage.src = mainImgSource;
+    modalImage.alt = `portfolio${slideIndex}.jpg`;
     imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     console.log(slideIndex)
 }

@@ -428,3 +428,6 @@ nav{
 .modal-image .next{
     right:5px;
 }
+#modal-image{
+    width: 100%;
+}
