@@ -95,6 +95,7 @@ function openModal(){
     modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
+    console.dir(modalImage);
 }
 
 // function for closing the modal
@@ -152,7 +153,8 @@ const imgDownloadLink = document.getElementById('imgDownload');
 // onclick function for downloading the portfolio images
 imgDownloadLink.onclick = download;
 
-
+ let newHeight = '100%';
+ let newWidth = '100%';
 // Function to add the watermark to the image and initiate the download
 function addWatermarkAndDownload() {
     const watermark = new Image();
@@ -160,17 +162,17 @@ function addWatermarkAndDownload() {
 
         // Create a canvas element to overlay the watermark
     const canvas = document.createElement('canvas');
-        canvas.width = modalImage.width + 50;
-        canvas.height = modalImage.height + 50; 
+        canvas.width = modalImage.naturalWidth;
+        canvas.height = modalImage.naturalHeight; 
     const ctx = canvas.getContext('2d');
     const text = "RS 3d wallpaper & floor; +880 1772 132818";
 
         // Draw the original image on the canvas
-        ctx.drawImage(modalImage, 0, 0);
+        ctx.drawImage(modalImage, 0,0);
 
         // Draw the watermark on top of the original image
         ctx.globalAlpha = 0.3;
-        ctx.drawImage(watermark, 100,100, 250, 150);
+        ctx.drawImage(watermark, 150,100, 250, 150);
         ctx.globalAlpha = 1;
 
             // Add background to the text
