@@ -88,21 +88,7 @@ function appendItem() {
 // Call the appendItem function every second
 const interval = setInterval(appendItem, 100);
 
-
-
-
-function closeModal(){
-    modalBox.style.opacity = '0';
-    modalBox.style.zIndex = '-1';
-    modalBox.style.pointerEvents ='none';
-    document.body.style.overflow = 'auto';
-    slideIndex = 1;
-}
-
-const modalBox = document.getElementById('modal-box');
-const imageNumber = document.querySelector('.image-number');
-const modalImage = document.getElementById('modal-image');
-
+// function for opeing the modal box for portfolio
 
 function openModal(){
     modalBox.style.opacity = '1';
@@ -110,27 +96,100 @@ function openModal(){
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
 }
+
+// function for closing the modal
+
+function closeModal(){
+    modalBox.style.opacity = '0';
+    modalBox.style.zIndex = '-1';
+    modalBox.style.pointerEvents ='none';
+    document.body.style.overflow = 'auto';
+}
+
+const modalBox = document.getElementById('modal-box');
+const imageNumber = document.querySelector('.image-number');
+const modalImage = document.getElementById('modal-image');
+
 let slideIndex = 1;
 
+// show the clicked image in the modal box
 function currentSlide (n){
     slideIndex = n;
     showSlide(slideIndex);
    
 }
 
+// function for control sliding by prev and next
+function plusSlide(n){
+    showSlide(slideIndex += n);
+}
+// show slide with some of the conditions
 function showSlide(n){
-        const thumbnailBox = document.querySelectorAll('.thumbnail-box');
+    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
+    
+    if(n > thumbnailBox.length){
+        slideIndex = thumbnailBox.length;
+        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        modalImage.src = mainImgSource;
+        modalImage.alt = `portfolio${slideIndex}.jpg`;
+        imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+    } else if( n < 1){
+        slideIndex = 1;
+        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        modalImage.src = mainImgSource;
+        modalImage.alt = `portfolio${slideIndex}.jpg`;
+        imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+    }else{
         let mainImgSource = `./portfolio/thumbnail/thumbnail(${n}).jpg`;
-            modalImage.src = mainImgSource;
-            modalImage.alt = `portfolio${slideIndex}.jpg`;
-        imageNumber.innerHTML = `${n}/${thumbnailBox.length}`
+        modalImage.src = mainImgSource;
+        modalImage.alt = `portfolio${slideIndex}.jpg`;
+        imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
+    }  
+};
+
+const imgDownloadLink = document.getElementById('imgDownload');
+
+// onclick function for downloading the portfolio images
+imgDownloadLink.onclick = download;
+
+
+// Function to add the watermark to the image and initiate the download
+function addWatermarkAndDownload() {
+    const watermark = new Image();
+        watermark.src = './img/logo.png';
+
+        // Create a canvas element to overlay the watermark
+    const canvas = document.createElement('canvas');
+        canvas.width = modalImage.width + 50;
+        canvas.height = modalImage.height + 50; 
+    const ctx = canvas.getContext('2d');
+    const text = "RS 3d wallpaper & floor; +880 1772 132818";
+
+        // Draw the original image on the canvas
+        ctx.drawImage(modalImage, 0, 0);
+
+        // Draw the watermark on top of the original image
+        ctx.globalAlpha = 0.3;
+        ctx.drawImage(watermark, 100,100, 250, 150);
+        ctx.globalAlpha = 1;
+
+            // Add background to the text
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // Background color (black with 50% opacity)
+        ctx.fillRect(0, canvas.height - 32, canvas.width, 32);
+          // Add text at the bottom of the image
+        ctx.fillStyle = 'white';
+        ctx.font = '22px Arial'; 
+        ctx.fillWeight = '600';
+        ctx.textAlign = 'center';
+        ctx.fillText(text, canvas.width / 2, canvas.height - 10);
+
+        // Convert the canvas to a data URL
+    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio(${slideIndex}).jpg`, 0.9); // Adjust format and quality as needed
+        return watermarkedImage;
 }
 
-function plusSlide(n){
-    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
-    let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex+=n}).jpg`;
-    modalImage.src = mainImgSource;
-    modalImage.alt = `portfolio${slideIndex}.jpg`;
-    imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
-    console.log(slideIndex)
+function download(){
+    const watermarkedImage =  addWatermarkAndDownload();
+    imgDownloadLink.href = watermarkedImage;
+    imgDownloadLink.download = `portfolio(${slideIndex}).jpg`;
 }
