@@ -191,5 +191,5 @@ function addWatermarkAndDownload() {
 function download(){
     const watermarkedImage =  addWatermarkAndDownload();
     imgDownloadLink.href = watermarkedImage;
-    imgDownloadLink.download = `portfolio(${slideIndex}).jpg`;
+    imgDownloadLink.download = `portfolio(${slideIndex})`;
 }
