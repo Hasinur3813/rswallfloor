@@ -184,7 +184,7 @@ function addWatermarkAndDownload() {
         ctx.fillText(text, canvas.width / 2, canvas.height - 10);
 
         // Convert the canvas to a data URL
-    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio(${slideIndex}).jpg`, 0.9); // Adjust format and quality as needed
+    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio(${slideIndex}).jpg`, 1.0); // Adjust format and quality as needed
         return watermarkedImage;
 }
 
