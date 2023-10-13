@@ -84,6 +84,7 @@ function appendItem() {
         i = 1;
     }
 }
+
 // Call the appendItem function every second
 const interval = setInterval(appendItem, 100);
 
@@ -94,15 +95,13 @@ function openModal(){
     modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
-
-    document.getElementById('modal-image').addEventListener('contextmenu', function(event) {
-        event.preventDefault();
-        // You can perform a custom action here or simply prevent the context menu from appearing.
-    });
-    
-    
+    document.addEventListener('contextmenu', preventContextMenu);
+    console.log('event added')
 }
 
+function preventContextMenu(event){
+    event.preventDefault();
+}
 // function for closing the modal
 
 function closeModal(){
@@ -110,6 +109,9 @@ function closeModal(){
     modalBox.style.zIndex = '-1';
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
+    document.removeEventListener('contextmenu', preventContextMenu);
+    console.log('event removed')
+
 }
 
 const modalBox = document.getElementById('modal-box');
@@ -199,3 +201,16 @@ function download(){
     imgDownloadLink.download = `portfolio(${slideIndex})`;
 }
 
+// Get a NodeList of all the image elements you want to target
+const imageElements = document.querySelectorAll('.item'); // Replace with your image selector
+
+// Function to prevent the default context menu behavior
+function preventContextMenu(event) {
+    event.preventDefault();
+    // You can perform a custom action here or simply prevent the context menu from appearing.
+}
+
+// Loop through each image element and attach the event listener
+imageElements.forEach(function(imageElement) {
+    imageElement.addEventListener('contextmenu', preventContextMenu);
+});
