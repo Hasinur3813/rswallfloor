@@ -95,9 +95,13 @@ function openModal(){
     modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
-    console.dir(modalImage);
+    document.addEventListener('contextmenu', preventContextMenu);
+    console.log('event added')
 }
 
+function preventContextMenu(event){
+    event.preventDefault();
+}
 // function for closing the modal
 
 function closeModal(){
@@ -105,6 +109,9 @@ function closeModal(){
     modalBox.style.zIndex = '-1';
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
+    document.removeEventListener('contextmenu', preventContextMenu);
+    console.log('event removed')
+
 }
 
 const modalBox = document.getElementById('modal-box');
@@ -153,8 +160,6 @@ const imgDownloadLink = document.getElementById('imgDownload');
 // onclick function for downloading the portfolio images
 imgDownloadLink.onclick = download;
 
- let newHeight = '100%';
- let newWidth = '100%';
 // Function to add the watermark to the image and initiate the download
 function addWatermarkAndDownload() {
     const watermark = new Image();
@@ -194,3 +199,17 @@ function download(){
     imgDownloadLink.href = watermarkedImage;
     imgDownloadLink.download = `portfolio(${slideIndex})`;
 }
+
+// Get a NodeList of all the image elements you want to target
+const imageElements = document.querySelectorAll('.item'); // Replace with your image selector
+
+// Function to prevent the default context menu behavior
+function preventContextMenu(event) {
+    event.preventDefault();
+    // You can perform a custom action here or simply prevent the context menu from appearing.
+}
+
+// Loop through each image element and attach the event listener
+imageElements.forEach(function(imageElement) {
+    imageElement.addEventListener('contextmenu', preventContextMenu);
+});
