@@ -71,7 +71,7 @@ let photoGallery = document.querySelector('.photo_gallery');
 let i = 1;
 
 function appendItem() {
-    if (i <= 30) {
+    if (i <= 20) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
@@ -86,7 +86,7 @@ function appendItem() {
 }
 
 // Call the appendItem function every second
-const interval = setInterval(appendItem, 100);
+const interval = setInterval(appendItem, 10);
 
 // function for opeing the modal box for portfolio
 
@@ -181,7 +181,6 @@ function addWatermarkAndDownload() {
           // Add text at the bottom of the image
         ctx.fillStyle = 'white';
         ctx.font = '22px Arial'; 
-        ctx.fillWeight = '600';
         ctx.textAlign = 'center';
         ctx.fillText(text, canvas.width / 2, canvas.height - 10);
 
