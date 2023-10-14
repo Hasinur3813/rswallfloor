@@ -96,7 +96,6 @@ function openModal(){
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
     document.addEventListener('contextmenu', preventContextMenu);
-    console.log('event added')
 }
 
 function preventContextMenu(event){
@@ -110,8 +109,6 @@ function closeModal(){
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
     document.removeEventListener('contextmenu', preventContextMenu);
-    console.log('event removed')
-
 }
 
 const modalBox = document.getElementById('modal-box');
@@ -200,16 +197,17 @@ function download(){
     imgDownloadLink.download = `portfolio(${slideIndex})`;
 }
 
-// Get a NodeList of all the image elements you want to target
-const imageElements = document.querySelectorAll('.item'); // Replace with your image selector
-
 // Function to prevent the default context menu behavior
 function preventContextMenu(event) {
     event.preventDefault();
     // You can perform a custom action here or simply prevent the context menu from appearing.
+    console.log('Sorry! download is forbidden. ')
 }
 
+window.addEventListener('load', ()=>{
+    const imageElements = document.querySelectorAll('.item');
+    imageElements.forEach(function(imageElement) {
+        imageElement.addEventListener('contextmenu', preventContextMenu);
+    });
+})
 // Loop through each image element and attach the event listener
-imageElements.forEach(function(imageElement) {
-    imageElement.addEventListener('contextmenu', preventContextMenu);
-});
