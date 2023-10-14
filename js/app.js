@@ -200,14 +200,12 @@ function download(){
 // Function to prevent the default context menu behavior
 function preventContextMenu(event) {
     event.preventDefault();
-    // You can perform a custom action here or simply prevent the context menu from appearing.
-    console.log('Sorry! download is forbidden. ')
 }
 
+// prevent context menu for the homepage images
 window.addEventListener('load', ()=>{
     const imageElements = document.querySelectorAll('.item');
     imageElements.forEach(function(imageElement) {
         imageElement.addEventListener('contextmenu', preventContextMenu);
     });
-})
-// Loop through each image element and attach the event listener
+});
