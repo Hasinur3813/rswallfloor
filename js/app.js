@@ -134,18 +134,18 @@ function showSlide(n){
     
     if(n > thumbnailBox.length){
         slideIndex = thumbnailBox.length;
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     } else if( n < 1){
         slideIndex = 1;
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     }else{
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${n}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
@@ -174,7 +174,7 @@ function addWatermarkAndDownload() {
 
         // Draw the watermark on top of the original image
         ctx.globalAlpha = 0.3;
-        ctx.drawImage(watermark, 150,100, 250, 150);
+        ctx.drawImage(watermark, 400,300, 300, 200);
         ctx.globalAlpha = 1;
 
             // Add background to the text
@@ -182,12 +182,12 @@ function addWatermarkAndDownload() {
         ctx.fillRect(0, canvas.height - 32, canvas.width, 32);
           // Add text at the bottom of the image
         ctx.fillStyle = 'white';
-        ctx.font = '22px Arial'; 
+        ctx.font = '30px Arial'; 
         ctx.textAlign = 'center';
         ctx.fillText(text, canvas.width / 2, canvas.height - 10);
 
         // Convert the canvas to a data URL
-    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio(${slideIndex}).jpg`, 1.0); // Adjust format and quality as needed
+    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio/portfolio(${slideIndex}).jpg`, 1.0); // Adjust format and quality as needed
         return watermarkedImage;
 }
 
