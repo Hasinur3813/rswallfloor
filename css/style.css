@@ -512,12 +512,11 @@ nav{
     justify-content: center;
     align-items: center;
     background: #000000b1;
-    width: 100% !important;
-    height: 100 !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    opacity: 0;
+    pointer-events: none;
 }
 
 .loader .spin{
@@ -543,7 +542,7 @@ nav{
         opacity: 1;
     }   
     50%{
-        opacity: 0;
+        opacity: 0.1;
     }   
     100%{
         opacity: 1;

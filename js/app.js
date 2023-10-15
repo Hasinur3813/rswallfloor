@@ -95,7 +95,7 @@ function openModal(){
     modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
-    document.addEventListener('contextmenu', preventContextMenu);
+    // document.addEventListener('contextmenu', preventContextMenu);
 }
 
 function preventContextMenu(event){
@@ -128,7 +128,7 @@ function currentSlide (n){
 // function for control sliding by prev and next button
 function plusSlide(n){
     // block the display for the image loading animation until the image is loaded
-    imageOverlay.style.display = 'block';
+    imageOverlay.style.opacity = '1';
     // sliding the next image
     showSlide(slideIndex += n);
 }
@@ -140,14 +140,13 @@ function showSlide(n){
         slideIndex = thumbnailBox.length;
         let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
-        
+
         // set the display -none for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.display = 'none';
+            imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
             imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
         });
-        
         
 
     } else if( n < 1){
@@ -157,7 +156,7 @@ function showSlide(n){
         
         // set the display -none for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.display = 'none';
+            imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
             imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
         });
@@ -165,10 +164,10 @@ function showSlide(n){
     }else{
         let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
         modalImage.src = mainImgSource;
-
+        
         // set the display -none for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.display = 'none';
+            imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
             imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
         });
