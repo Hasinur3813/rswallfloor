@@ -146,6 +146,9 @@ function showSlide(n){
         imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     }else{
         let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
+        mainImgSource.addEventListener('load', ()=>{
+            
+        })
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
