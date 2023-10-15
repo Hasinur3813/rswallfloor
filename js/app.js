@@ -3,9 +3,15 @@
 
 const preLoader = document.querySelector('.preloader');
 
-window.addEventListener('load',()=>{
-    document.body.style.overflow = 'auto';
+
+// Function to hide the preloader
+function hidePreloader() {
     preLoader.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+window.addEventListener('load',()=>{
+    hidePreloader();
 })
 
 const navItem = document.querySelectorAll('.nav-menu-item');
