@@ -95,20 +95,34 @@ function openModal(){
     modalBox.style.zIndex = '1';
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
-    // document.addEventListener('contextmenu', preventContextMenu);
+    document.addEventListener('contextmenu', preventContextMenu);
+    window.addEventListener('keydown', slidingByArrow);
 }
 
+// Keyboard arrow navigation
+function slidingByArrow(event){
+    if (event.key === 'ArrowLeft') {
+        // Navigate to the previous image
+        plusSlide(-1);
+    } else if (event.key === 'ArrowRight') {
+        // Navigate to the next image
+        plusSlide(1);
+    }
+}
+   
+// function for prevent the context menu for the image safety
 function preventContextMenu(event){
     event.preventDefault();
 }
-// function for closing the modal
 
+// function for closing the modal
 function closeModal(){
     modalBox.style.opacity = '0';
     modalBox.style.zIndex = '-1';
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
     document.removeEventListener('contextmenu', preventContextMenu);
+    window.removeEventListener('keydown', slidingByArrow);
 }
 
 const modalBox = document.getElementById('modal-box');
@@ -141,7 +155,7 @@ function showSlide(n){
         let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
 
-        // set the display -none for the imge overlay when the image is loaded
+        // set the opacity -0 for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
             imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
@@ -154,7 +168,7 @@ function showSlide(n){
         let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
         
-        // set the display -none for the imge overlay when the image is loaded
+        // set the opacity -0 for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
             imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
@@ -165,7 +179,7 @@ function showSlide(n){
         let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
         modalImage.src = mainImgSource;
         
-        // set the display -none for the imge overlay when the image is loaded
+        // set the opacity -0 for the imge overlay when the image is loaded
         modalImage.addEventListener('load', ()=>{
             imageOverlay.style.opacity = '0';
             modalImage.alt = `portfolio${slideIndex}.jpg`;
