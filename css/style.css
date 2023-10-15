@@ -9,7 +9,7 @@
 }
 body{
     background: var(--black) !important;
-    /* background: white; */
+    overflow: hidden;
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
 
@@ -547,4 +547,24 @@ nav{
     100%{
         opacity: 1;
     }   
+}
+
+.preloader{
+    width: 100% !important;
+    height: 100% !important;
+    background: black;
+    z-index: 999;
+}
+.preloader-image{
+    background-image: url(../img/preloader.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 100%;
 }

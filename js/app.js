@@ -1,6 +1,13 @@
 'use strict';
 
 
+const preLoader = document.querySelector('.preloader');
+
+window.addEventListener('load',()=>{
+    document.body.style.overflow = 'auto';
+    preLoader.style.display = 'none';
+})
+
 const navItem = document.querySelectorAll('.nav-menu-item');
 
 navItem.forEach(item => {
@@ -248,3 +255,4 @@ window.addEventListener('load', ()=>{
         imageElement.addEventListener('contextmenu', preventContextMenu);
     });
 });
+
