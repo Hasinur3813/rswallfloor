@@ -88,6 +88,15 @@ function appendItem() {
 // Call the appendItem function every second
 const interval = setInterval(appendItem, 10);
 
+
+
+
+const modalBox = document.getElementById('modal-box');
+const imageNumber = document.querySelector('.image-number');
+const modalImage = document.getElementById('modal-image');
+const imageOverlay = document.querySelector('.image-overlay');
+
+
 // function for opeing the modal box for portfolio
 
 function openModal(){
@@ -98,7 +107,16 @@ function openModal(){
     document.addEventListener('contextmenu', preventContextMenu);
     window.addEventListener('keydown', slidingByArrow);
 }
-
+// function for closing the modal
+function closeModal(){
+    modalBox.style.opacity = '0';
+    modalBox.style.zIndex = '-1';
+    modalBox.style.pointerEvents ='none';
+    document.body.style.overflow = 'auto';
+    document.removeEventListener('contextmenu', preventContextMenu);
+    window.removeEventListener('keydown', slidingByArrow);
+    imageOverlay.style.opacity = '1';
+}
 // Keyboard arrow navigation
 function slidingByArrow(event){
     if (event.key === 'ArrowLeft') {
@@ -114,21 +132,6 @@ function slidingByArrow(event){
 function preventContextMenu(event){
     event.preventDefault();
 }
-
-// function for closing the modal
-function closeModal(){
-    modalBox.style.opacity = '0';
-    modalBox.style.zIndex = '-1';
-    modalBox.style.pointerEvents ='none';
-    document.body.style.overflow = 'auto';
-    document.removeEventListener('contextmenu', preventContextMenu);
-    window.removeEventListener('keydown', slidingByArrow);
-}
-
-const modalBox = document.getElementById('modal-box');
-const imageNumber = document.querySelector('.image-number');
-const modalImage = document.getElementById('modal-image');
-const imageOverlay = document.querySelector('.image-overlay');
 
 let slideIndex = 1;
 
