@@ -211,6 +211,6 @@ function preventContextMenu(event) {
 }
 
 // Loop through each image element and attach the event listener
-imageElements.forEach(function(imageElement) {
+item.forEach(function(imageElement) {
     imageElement.addEventListener('contextmenu', preventContextMenu);
 });
