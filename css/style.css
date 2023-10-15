@@ -345,6 +345,9 @@ nav{
     transition: 0.3s;
 }
 
+
+/* portfolio thumbnail box */
+
 .thumbnail-box{
     overflow:hidden;
     border-radius: 5px;
@@ -358,6 +361,8 @@ nav{
     transition: 0.3s;
 }
 
+
+/* modal box design */
 .modal-box{
     position:fixed;
     top:50%;
@@ -376,7 +381,7 @@ nav{
     background: white;
     transition: 0.3s;
 }
-.modal-header a{
+.modal-header a i{
     font-size: 18px;
     animation: download 2s linear infinite;
     transition:0.3s;
@@ -430,4 +435,74 @@ nav{
 }
 #modal-image{
     width: 100%;
+}
+
+/* tooltip design for download button and close button */
+#imgDownload h5{
+    position: relative;
+    color:var(--white);
+    font-size: 14px;
+    left: -18px;
+    top:-33px;
+    background: var(--secondary);
+    padding: 3px;
+    z-index: 1;
+    border-radius: 2px;
+    display: none;
+    pointer-events: none;
+}
+
+#imgDownload::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 5px solid var(--secondary);
+    top: -18px;
+    left: 5px;
+    transform: rotate(45deg);
+    pointer-events: none;
+    display: none;
+}
+
+#imgDownload:hover h5{
+    display: block !important;
+}
+#imgDownload:hover::after{
+    display: block !important;
+}
+
+.close-modal h5{
+    position: relative;
+    color:var(--white);
+    font-size: 16px;
+    left: 0px;
+    top:-35px;
+    background: var(--secondary);
+    padding: 3px;
+    z-index: 99;
+    border-radius: 2px;
+    display: none;
+    pointer-events: none;
+
+}
+.close-modal h5::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 5px solid var(--secondary);
+    background: var(--secondary);
+    bottom: -3px;
+    left: 15px;
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+}
+.close-modal:hover h5{
+    display: block !important;
+}
+.close-modal:hover h5::after{
+    display: block !important;
 }

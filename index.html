@@ -125,6 +125,15 @@
         </div>
 
         <div class="row photo_gallery justify-content-center"></div>
+        <div class="row d-none video_gallery justify-content-center">
+          <div class="col-4 col-md-3 mb-3">
+            <video class="w-100 rounded" controls>
+              <source src="./portfolio/video/portfolio_video.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+          </div>
+        </div>
+
       </div>
 
       <div class="modal-box d-flex justify-content-center align-items-center" id="modal-box">
@@ -133,13 +142,19 @@
             <h5 class="image-number">1/20</h5>
 
             <div class="me-3 d-flex gap-3">
-              <a href="" id="imgDownload" ><i class="fa-solid fa-download"></i></a>
-              <span class="close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+              <a href="" id="imgDownload" class="position-relative me-2">
+                <i class="fa-solid fa-download"></i>
+                <h5 class="position-absolute">Download</h5>
+              </a>
+              <span class="close-modal position-relative" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+                <h5 class="position-absolute">Close</h5>
+              </span>
             </div>
           </div>
           <div class="modal-image position-relative">
             <i class="fa-solid fa-arrow-left position-absolute prev" onclick="plusSlide(-1)"></i>
-            <img src="" class="img-fluid border rounded" id="modal-image"/>
+            <img src="" class="img-fluid border rounded" id="modal-image" loading="lazy"/>
             <i class="fa-solid fa-arrow-right position-absolute next" onclick="plusSlide(1)"></i>
           </div>
         </div>

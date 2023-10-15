@@ -71,7 +71,7 @@ let photoGallery = document.querySelector('.photo_gallery');
 let i = 1;
 
 function appendItem() {
-    if (i <= 30) {
+    if (i <= 20) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
@@ -86,7 +86,7 @@ function appendItem() {
 }
 
 // Call the appendItem function every second
-const interval = setInterval(appendItem, 100);
+const interval = setInterval(appendItem, 10);
 
 // function for opeing the modal box for portfolio
 
@@ -96,7 +96,6 @@ function openModal(){
     modalBox.style.pointerEvents ='fill';
     document.body.style.overflow = 'hidden';
     document.addEventListener('contextmenu', preventContextMenu);
-    console.log('event added')
 }
 
 function preventContextMenu(event){
@@ -110,8 +109,6 @@ function closeModal(){
     modalBox.style.pointerEvents ='none';
     document.body.style.overflow = 'auto';
     document.removeEventListener('contextmenu', preventContextMenu);
-    console.log('event removed')
-
 }
 
 const modalBox = document.getElementById('modal-box');
@@ -137,18 +134,18 @@ function showSlide(n){
     
     if(n > thumbnailBox.length){
         slideIndex = thumbnailBox.length;
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     } else if( n < 1){
         slideIndex = 1;
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${slideIndex}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
     }else{
-        let mainImgSource = `./portfolio/thumbnail/thumbnail(${n}).jpg`;
+        let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
         modalImage.src = mainImgSource;
         modalImage.alt = `portfolio${slideIndex}.jpg`;
         imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
@@ -177,7 +174,7 @@ function addWatermarkAndDownload() {
 
         // Draw the watermark on top of the original image
         ctx.globalAlpha = 0.3;
-        ctx.drawImage(watermark, 150,100, 250, 150);
+        ctx.drawImage(watermark, 400,300, 300, 200);
         ctx.globalAlpha = 1;
 
             // Add background to the text
@@ -185,13 +182,12 @@ function addWatermarkAndDownload() {
         ctx.fillRect(0, canvas.height - 32, canvas.width, 32);
           // Add text at the bottom of the image
         ctx.fillStyle = 'white';
-        ctx.font = '22px Arial'; 
-        ctx.fillWeight = '600';
+        ctx.font = '30px Arial'; 
         ctx.textAlign = 'center';
         ctx.fillText(text, canvas.width / 2, canvas.height - 10);
 
         // Convert the canvas to a data URL
-    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio(${slideIndex}).jpg`, 1.0); // Adjust format and quality as needed
+    const watermarkedImage = canvas.toDataURL(`./portfolio/portfolio/portfolio(${slideIndex}).jpg`, 1.0); // Adjust format and quality as needed
         return watermarkedImage;
 }
 
@@ -201,16 +197,15 @@ function download(){
     imgDownloadLink.download = `portfolio(${slideIndex})`;
 }
 
-// Get a NodeList of all the image elements you want to target
-const imageElements = document.querySelectorAll('.item'); // Replace with your image selector
-
 // Function to prevent the default context menu behavior
 function preventContextMenu(event) {
     event.preventDefault();
-    // You can perform a custom action here or simply prevent the context menu from appearing.
 }
 
-// Loop through each image element and attach the event listener
-item.forEach(function(imageElement) {
-    imageElement.addEventListener('contextmenu', preventContextMenu);
+// prevent context menu for the homepage images
+window.addEventListener('load', ()=>{
+    const imageElements = document.querySelectorAll('.item');
+    imageElements.forEach(function(imageElement) {
+        imageElement.addEventListener('contextmenu', preventContextMenu);
+    });
 });
