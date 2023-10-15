@@ -114,6 +114,7 @@ function closeModal(){
 const modalBox = document.getElementById('modal-box');
 const imageNumber = document.querySelector('.image-number');
 const modalImage = document.getElementById('modal-image');
+const imageOverlay = document.querySelector('.image-overlay');
 
 let slideIndex = 1;
 
@@ -124,8 +125,11 @@ function currentSlide (n){
    
 }
 
-// function for control sliding by prev and next
+// function for control sliding by prev and next button
 function plusSlide(n){
+    // block the display for the image loading animation until the image is loaded
+    imageOverlay.style.display = 'block';
+    // sliding the next image
     showSlide(slideIndex += n);
 }
 // show slide with some of the conditions
@@ -136,22 +140,38 @@ function showSlide(n){
         slideIndex = thumbnailBox.length;
         let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
-        modalImage.alt = `portfolio${slideIndex}.jpg`;
-        imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+        
+        // set the display -none for the imge overlay when the image is loaded
+        modalImage.addEventListener('load', ()=>{
+            imageOverlay.style.display = 'none';
+            modalImage.alt = `portfolio${slideIndex}.jpg`;
+            imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+        });
+        
+        
+
     } else if( n < 1){
         slideIndex = 1;
         let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
         modalImage.src = mainImgSource;
-        modalImage.alt = `portfolio${slideIndex}.jpg`;
-        imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+        
+        // set the display -none for the imge overlay when the image is loaded
+        modalImage.addEventListener('load', ()=>{
+            imageOverlay.style.display = 'none';
+            modalImage.alt = `portfolio${slideIndex}.jpg`;
+            imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+        });
+     
     }else{
         let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
-        mainImgSource.addEventListener('load', ()=>{
-            
-        })
         modalImage.src = mainImgSource;
-        modalImage.alt = `portfolio${slideIndex}.jpg`;
-        imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
+
+        // set the display -none for the imge overlay when the image is loaded
+        modalImage.addEventListener('load', ()=>{
+            imageOverlay.style.display = 'none';
+            modalImage.alt = `portfolio${slideIndex}.jpg`;
+            imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
+        });
     }  
 };
 

@@ -508,11 +508,44 @@ nav{
 }
 
 .image-overlay{
-    background: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000b1;
     width: 100% !important;
     height: 100 !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+
+.loader .spin{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary);
+    border-radius: 50%;
+    animation: imageAnimate linear 1.2s infinite;
+
+}
+
+.spin:nth-child(2) {
+    animation-delay: 0.2s; /* Delay the animation for the second dot */
+}
+
+.spin:nth-child(3) {
+    animation-delay: 0.8s; /* Delay the animation for the third dot */
+}
+
+@keyframes imageAnimate {
+    0%{
+        opacity: 1;
+    }   
+    50%{
+        opacity: 0;
+    }   
+    100%{
+        opacity: 1;
+    }   
 }
