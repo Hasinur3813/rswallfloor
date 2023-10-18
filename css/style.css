@@ -9,7 +9,7 @@
 }
 body{
     background: var(--black) !important;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
 
@@ -558,4 +558,29 @@ nav{
     background-position: center;
     background-repeat: no-repeat;
     z-index:99;
+}
+
+/* video gallery */
+.video{
+    overflow: hidden;
+}
+.video video{
+    transition: 0.3s;
+}
+.video video:hover{
+    transform: scale(1.1);
+}
+/* video modal */
+.video-modal{
+    z-index: 1;
+    background: var(--black);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-container video{
+    min-width: 100% !important;
+    min-height: 100% !important;
+    width: auto;
+    height: auto;
 }

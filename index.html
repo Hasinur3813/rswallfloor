@@ -12,7 +12,7 @@
     <link href="https://fonts.maateen.me/apona-lohit/font.css" rel="stylesheet">
   </head>
   <body>
-    <div class="preloader position-fixed"></div>
+    <!-- <div class="preloader position-fixed"></div> -->
     <nav class="navbar navbar-expand-md">
             <div class="container">
               <a class="navbar-brand" href="#">
@@ -103,7 +103,7 @@
           </div>
           <div class="col-md-6 title_video">
             <div class="iframe w-100 h-100">
-              <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8"></iframe>
+              <!-- <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8" allowfullscreen="true"></iframe> -->
             </div>
           </div>
         </div>
@@ -125,18 +125,25 @@
           </div>
         </div>
 
-        <div class="row photo_gallery justify-content-center"></div>
-        <div class="row d-none video_gallery justify-content-center">
-          <div class="col-4 col-md-3 mb-3">
-            <video class="w-100 rounded" controls>
-              <source src="./portfolio/video/portfolio_video.mp4" type="video/mp4">
-              Your browser does not support HTML video.
-            </video>
-          </div>
+        <!-- image gallery -->
+        <div class="row d-none photo_gallery justify-content-center"></div>
+        
+        <!-- video gallery -->
+        <div class="row video_gallery justify-content-center">
+          <!-- <div class="col-4 col-md-3 mb-3 video">
+            <video class="w-100" src="./portfolio/video/portfolio_video.mp4" muted controls></video>
+          </div> -->
         </div>
-
       </div>
 
+       <!-- modal box for video -->
+
+       <div class="video-modal d-none position-fixed w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="video-container col-8 justify-content-center align-items-center d-flex">
+          <video src="./portfolio/video/portfolio_video.mp4" muted"></video>
+        </div>
+      </div>
+      <!-- modal box for images -->
       <div class="modal-box d-flex justify-content-center align-items-center" id="modal-box">
         <div class="modal-inner rounded col-10 col-md-6">
           <div class="modal-header p-2">

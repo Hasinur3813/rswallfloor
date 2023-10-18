@@ -5,14 +5,14 @@ const preLoader = document.querySelector('.preloader');
 
 
 // Function to hide the preloader
-function hidePreloader() {
-    preLoader.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+// function hidePreloader() {
+//     preLoader.style.display = 'none';
+//     document.body.style.overflow = 'auto';
+// }
 
-window.addEventListener('load',()=>{
-    hidePreloader();
-})
+// window.addEventListener('load',()=>{
+//     hidePreloader();
+// })
 
 const navItem = document.querySelectorAll('.nav-menu-item');
 
@@ -261,4 +261,19 @@ window.addEventListener('load', ()=>{
         imageElement.addEventListener('contextmenu', preventContextMenu);
     });
 });
+
+let videoGallery = document.querySelector('.video_gallery');
+
+for(let i = 0; i<=2; i++){
+    let div = document.createElement('div');
+    div.classList.add('col-4', 'col-md-3', 'mb-3', 'video');
+    
+    let video = `<video class="w-100"  onclick ="currentSlide(${i})" muted controls autofocus='true'> <source src="./portfolio/video/portfolio_video.mp4"></video>`;
+    div.innerHTML = video;
+    videoGallery.appendChild(div);
+}
+
+// controls for video gallery
+const video = document.querySelectorAll('.video');
+const clickedVideo = document.querySelector('.activatedVideo');
 
