@@ -262,18 +262,69 @@ window.addEventListener('load', ()=>{
     });
 });
 
-let videoGallery = document.querySelector('.video_gallery');
 
-for(let i = 0; i<=2; i++){
-    let div = document.createElement('div');
-    div.classList.add('col-4', 'col-md-3', 'mb-3', 'video');
-    
-    let video = `<video class="w-100"  onclick ="currentSlide(${i})" muted controls autofocus='true'> <source src="./portfolio/video/portfolio_video.mp4"></video>`;
-    div.innerHTML = video;
-    videoGallery.appendChild(div);
+// controls for the video gallery
+let videoGallery = document.querySelector('.video_gallery');
+const videoModalBox = document.querySelector('.video-modal');
+const modalVideo = document.getElementById('modal-video');
+const loader = document.querySelector('.loading_animation');
+
+// append the each video tho the video gallery
+function apendVideo(){
+    for(let i = 0; i<=10; i++){
+        let div = document.createElement('div');
+        div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
+        let video = document.createElement('video');
+        video.src = './portfolio/video/portfolio_video.mp4';
+        video.classList.add('w-100');
+        video.muted = true;
+        video.autoplay = false;
+        div.appendChild(video);
+        videoGallery.appendChild(div);
+        
+        video.addEventListener('loadeddata', checkIfAllVideosLoaded)
+
+    }
+
+    const video = document.querySelectorAll('video');
+    // function for showing the videos to the modal box
+    showVideoToModal(video);
+}
+let videoCount = 0;
+
+function checkIfAllVideosLoaded(){
+    videoCount++;
+    if(videoCount == 1){
+        // hide the loading anmation
+        loader.style.opacity = '0';
+        loader.style.zIndex = '-1';
+    }
 }
 
-// controls for video gallery
-const video = document.querySelectorAll('.video');
-const clickedVideo = document.querySelector('.activatedVideo');
+const modalClose = document.getElementById('video-modal-close').onclick = ()=>{
+    videoModalBox.classList.remove('show_and_hide_video_modal');
+};
 
+const photoBtn = document.getElementById('photo');
+const videoBtn = document.getElementById('video').onclick = ()=>{
+    photoGallery.style.opacity = '0';
+    photoGallery.style.zIndex = '-1';
+    photoGallery.style.pointerEvents = 'none';
+    videoGallery.classList.add('show_and_hide_video_modal');
+    apendVideo();
+}
+
+function showVideoToModal(video){
+    video.forEach(vid =>{
+        vid.addEventListener('click',()=>{
+            let vidSrc = vid.src;
+            modalVideo.src= vidSrc;
+            videoModalBox.classList.add('show_and_hide_video_modal');
+        })
+    });
+}
+
+photoBtn.onclick = ()=>{
+    videoGallery.classList.remove('show_and_hide_video_modal');
+    photoGallery.classList.add('show_and_hide_video_modal');
+}

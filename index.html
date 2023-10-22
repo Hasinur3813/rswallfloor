@@ -119,28 +119,30 @@
 
           <div class="col-md-12 portfolio_content pb-5">
             <ul class="navbar-nav dropdown d-flex flex-row">
-              <li class="nav-item me-5 navigator">ছবি</li>
-              <li class="nav-item navigator">ভিডিও</li>
+              <li class="nav-item me-5 navigator" id="photo">ছবি</li>
+              <li class="nav-item navigator" id="video">ভিডিও</li>
             </ul>
           </div>
         </div>
 
         <!-- image gallery -->
-        <div class="row d-none photo_gallery justify-content-center"></div>
+        <div class="row photo_gallery justify-content-center"></div>
         
         <!-- video gallery -->
-        <div class="row video_gallery justify-content-center">
-          <!-- <div class="col-4 col-md-3 mb-3 video">
-            <video class="w-100" src="./portfolio/video/portfolio_video.mp4" muted controls></video>
-          </div> -->
+        <div class="row video_gallery justify-content-center align-items-center">
+          <div class="loading_animation d-flex justify-content-center align-content-center">
+            <img src="./img/loader.gif" alt="loader.gif" class="img-fluid" style="width: 150px; height: 150px;"/>
+          </div>
         </div>
+
       </div>
 
        <!-- modal box for video -->
 
-       <div class="video-modal d-none position-fixed w-100 h-100 d-flex justify-content-center align-items-center">
-        <div class="video-container col-8 justify-content-center align-items-center d-flex">
-          <video src="./portfolio/video/portfolio_video.mp4" muted"></video>
+       <div class="video-modal">
+        <div class="video-container justify-content-center align-items-center d-flex rounded-2">
+          <i class="fa-solid fa-xmark" id="video-modal-close"></i>
+          <video src="" id="modal-video" muted controls autoplay></video>
         </div>
       </div>
       <!-- modal box for images -->
