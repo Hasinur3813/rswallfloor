@@ -603,7 +603,7 @@ nav{
     pointer-events: none;
 }
 
-.show_and_hide_video_modal{
+.show_content{
     opacity: 1;
     z-index: 99;
     pointer-events: fill;
