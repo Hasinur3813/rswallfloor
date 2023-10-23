@@ -313,8 +313,8 @@ const photoBtn = document.getElementById('photo');
 const videoBtn = document.getElementById('video').onclick = ()=>{
     let images = document.querySelectorAll('.thumbnail-box');
     images.forEach(item =>{item.style.display = 'none'})
-    videoGallery.classList.add('show_content');
     apendVideo();
+    videoGallery.classList.add('show_content');
 }
 
 function showVideoToModal(video){
