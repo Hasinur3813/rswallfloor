@@ -604,9 +604,9 @@ nav{
 }
 
 .show_and_hide_video_modal{
-    opacity: 1;
-    z-index: 99;
-    pointer-events: fill;
+    opacity: 1 !important;
+    z-index: 99 !important;
+    pointer-events: fill !important;
 }
 .video-container{
     position: relative;

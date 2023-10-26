@@ -32,7 +32,7 @@ navItem.forEach(item => {
 
 const counterElement = document.querySelectorAll('.element span');
 
-counting();
+
 function counting(){
     counterElement.forEach(number =>{
         const target = number.getAttribute('data-target');
@@ -52,7 +52,9 @@ function counting(){
             }
         },10)
     })
-}
+};
+
+counting();
 
 // toggle menu for dropdown items
 
@@ -65,7 +67,7 @@ function toggleMenu(){
     dropdownBox.classList.toggle('showDropdown');
     arrow.classList.toggle('rotateAngle');
     removeDropdown();
-}
+};
 
 // remove dropdown by clicking on window
 function removeDropdown(){
@@ -77,13 +79,15 @@ function removeDropdown(){
         }
     }
     window.addEventListener('click',hideDropdown);
-}
+};
 
 let photoGallery = document.querySelector('.photo_gallery');
 
 let i = 1;
+// Call the appendImages function every second
+let interval = setInterval(appendImages, 10);
 
-function appendItem() {
+function appendImages() {
     if (i <= 20) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
@@ -96,13 +100,7 @@ function appendItem() {
         clearInterval(interval); // Stop the interval when i reaches 51 (after 50 items)
         i = 1;
     }
-}
-
-// Call the appendItem function every second
-const interval = setInterval(appendItem, 10);
-
-
-
+};
 
 const modalBox = document.getElementById('modal-box');
 const imageNumber = document.querySelector('.image-number');
@@ -271,11 +269,11 @@ const loader = document.querySelector('.loading_animation');
 
 // append the each video tho the video gallery
 function apendVideo(){
-    for(let i = 0; i<=10; i++){
+    for(let i = 1; i<=5; i++){
         let div = document.createElement('div');
         div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
         let video = document.createElement('video');
-        video.src = './portfolio/video/portfolio_video.mp4';
+        video.src = `./portfolio/video/portfolio_video${i}.mp4`;
         video.classList.add('w-100');
         video.muted = true;
         video.autoplay = false;
@@ -303,10 +301,15 @@ function checkIfAllVideosLoaded(){
 
 const modalClose = document.getElementById('video-modal-close').onclick = ()=>{
     videoModalBox.classList.remove('show_and_hide_video_modal');
+    modalVideo.pause();
 };
 
 const photoBtn = document.getElementById('photo');
 const videoBtn = document.getElementById('video').onclick = ()=>{
+    let images = document.querySelectorAll('.thumbnail-box');
+    for(let item of images){
+        item.style.display = 'none';
+    }
     photoGallery.style.opacity = '0';
     photoGallery.style.zIndex = '-1';
     photoGallery.style.pointerEvents = 'none';
@@ -319,6 +322,7 @@ function showVideoToModal(video){
         vid.addEventListener('click',()=>{
             let vidSrc = vid.src;
             modalVideo.src= vidSrc;
+            modalVideo.muted = false;
             videoModalBox.classList.add('show_and_hide_video_modal');
         })
     });
@@ -327,4 +331,9 @@ function showVideoToModal(video){
 photoBtn.onclick = ()=>{
     videoGallery.classList.remove('show_and_hide_video_modal');
     photoGallery.classList.add('show_and_hide_video_modal');
+    let images = document.querySelectorAll('.thumbnail-box');
+    for(let item of images){
+        item.style.display = 'block';
+    }
+    
 }
