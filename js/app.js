@@ -269,6 +269,7 @@ const loader = document.querySelector('.loading_animation');
 
 // append the each video tho the video gallery
 function apendVideo(){
+<<<<<<< HEAD
     for(let i = 1; i<=5; i++){
         let div = document.createElement('div');
         div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
@@ -282,17 +283,36 @@ function apendVideo(){
         
         video.addEventListener('loadeddata', checkIfAllVideosLoaded)
 
+=======
+    if(!videoGallery.classList.contains('hasVideo')){
+        for(let i = 1; i<=10; i++){
+            let div = document.createElement('div');
+            div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
+            let video = document.createElement('video');
+            video.src = './portfolio/video/portfolio_video.mp4';
+            video.classList.add('w-100');
+            video.muted = false;
+            video.autoplay = false;
+            div.appendChild(video);
+            videoGallery.appendChild(div);
+            videoGallery.classList.add('hasVideo');
+            
+            video.addEventListener('loadeddata', checkIfAllVideosLoaded);
+    
+        }
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
     }
-
     const video = document.querySelectorAll('video');
     // function for showing the videos to the modal box
     showVideoToModal(video);
 }
+
 let videoCount = 0;
 
 function checkIfAllVideosLoaded(){
+    const video = document.querySelectorAll('video');
     videoCount++;
-    if(videoCount == 1){
+    if(videoCount == video.length-1){
         // hide the loading anmation
         loader.style.opacity = '0';
         loader.style.zIndex = '-1';
@@ -300,13 +320,18 @@ function checkIfAllVideosLoaded(){
 }
 
 const modalClose = document.getElementById('video-modal-close').onclick = ()=>{
+<<<<<<< HEAD
     videoModalBox.classList.remove('show_and_hide_video_modal');
     modalVideo.pause();
+=======
+    videoModalBox.classList.remove('show_content');
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
 };
-
+  
 const photoBtn = document.getElementById('photo');
 const videoBtn = document.getElementById('video').onclick = ()=>{
     let images = document.querySelectorAll('.thumbnail-box');
+<<<<<<< HEAD
     for(let item of images){
         item.style.display = 'none';
     }
@@ -314,7 +339,11 @@ const videoBtn = document.getElementById('video').onclick = ()=>{
     photoGallery.style.zIndex = '-1';
     photoGallery.style.pointerEvents = 'none';
     videoGallery.classList.add('show_and_hide_video_modal');
+=======
+    images.forEach(item =>{item.style.display = 'none'})
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
     apendVideo();
+    videoGallery.classList.add('show_content');
 }
 
 function showVideoToModal(video){
@@ -322,13 +351,18 @@ function showVideoToModal(video){
         vid.addEventListener('click',()=>{
             let vidSrc = vid.src;
             modalVideo.src= vidSrc;
+<<<<<<< HEAD
             modalVideo.muted = false;
             videoModalBox.classList.add('show_and_hide_video_modal');
+=======
+            videoModalBox.classList.add('show_content');
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
         })
     });
 }
 
 photoBtn.onclick = ()=>{
+<<<<<<< HEAD
     videoGallery.classList.remove('show_and_hide_video_modal');
     photoGallery.classList.add('show_and_hide_video_modal');
     let images = document.querySelectorAll('.thumbnail-box');
@@ -336,4 +370,9 @@ photoBtn.onclick = ()=>{
         item.style.display = 'block';
     }
     
+=======
+    videoGallery.classList.remove('show_content');
+    let images = document.querySelectorAll('.thumbnail-box');
+    images.forEach(item =>{item.style.display = 'block'})
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
 }

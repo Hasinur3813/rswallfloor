@@ -603,10 +603,17 @@ nav{
     pointer-events: none;
 }
 
+<<<<<<< HEAD
 .show_and_hide_video_modal{
     opacity: 1 !important;
     z-index: 99 !important;
     pointer-events: fill !important;
+=======
+.show_content{
+    opacity: 1;
+    z-index: 99;
+    pointer-events: fill;
+>>>>>>> 729c93d2a8f5da1c28c1336052e59febe3bb064f
 }
 .video-container{
     position: relative;
