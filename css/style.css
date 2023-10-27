@@ -9,6 +9,10 @@
 }
 body{
     background: var(--white) !important;
+    /* background-image: url(/img/main_bg.jpg);
+    background-size: cover;
+    background-position:fixed;
+    background-repeat: no-repeat; */
     /* overflow: hidden; */
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
@@ -17,7 +21,7 @@ body{
     --primary: #0984e3;
     --secondary: #ff669b;
     --white: #ffffff;
-    --black:#0b1e32;;
+    --black:#0b2744;
 }
 ::-webkit-scrollbar{
     width: 12px;
@@ -36,9 +40,34 @@ h1{
     color: var(--secondary) !important;
     font-weight: 700 !important;
 }
+
+
+/* top header (contact area) */
+.top-header{
+    background:var(--black);
+}
+
+.top-header .content-box .social-icons i{
+    background: var(--primary);
+    color: white;
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(62, 60, 60, 0.979);
+    transition: 0.3s;
+    cursor:pointer;
+}
+.top-header .content-box .social-icons i:hover{
+    /* transform: scale(1.1); */
+    background:none;
+    color: var(--primary);
+}
+.top-header .content-box .social-icons i:nth-child(2):hover{
+    color: red !important;
+}
+
 /* =========== Navbar =========== */
 nav{
-    background:var(--black) !important;
+    /* background:var(--black) !important; */
 }
 .navbar-brand{
     width: 112px;
@@ -218,6 +247,7 @@ nav{
     z-index: 1;
     overflow: hidden;
     transition: 0.3s;
+    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
 }
 .element span{
     font-size: 25px;
@@ -227,25 +257,11 @@ nav{
     margin-top: 10px;
     color: var(--white);
 }
-.element::before{
-    position: absolute;
-    content: '';
-    width:0;
-    height:0;
-    background: var(--primary);
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    z-index: -1;
-    transition: 0.3s;
+.element:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.element:hover::before{
-    width:100%;
-    height: 100%;
-   
-}
-/* =========== slider area =========== */
+/* =========== choose us area =========== */
  .choose-us h1{
     animation: flick 1.5s linear infinite;
 }
@@ -263,7 +279,7 @@ nav{
    
 }
  .choose-us p{
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 60px;
     font-size: 16px;
 }
@@ -274,7 +290,7 @@ nav{
  .choose-us-content ul li{
     list-style: none;
     margin-bottom: 10px;
-    color: var(--white);
+    color: var(--black);
 }
 
 .choose-us-content ul li span{
@@ -288,7 +304,7 @@ nav{
 /* portfolio section */
 
 .portfolio_section p{
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 60px;
     font-size: 16px;
 }
@@ -298,10 +314,19 @@ nav{
     border-radius: 2px;
     color: var(--white);
     cursor: pointer;
+    transition: 0.3s;
 }
-.portfolio_section .navigator:hover{
-    /* background-color: #0a6bb5; */
+.btnBackground{
+    background: var(--black) !important;
+    animation: smoothBg 2.5s ease-in-out infinite;
 }
+
+@keyframes smoothBg {
+    50%{
+        opacity: 0.8;
+    }
+}
+
 .dropdown{
     position:relative;
 }
@@ -566,6 +591,7 @@ nav{
     opacity: 0;
     pointer-events: none;
     z-index: -1;
+    display: none;
 }
 .video_gallery .loading_animation{
     opacity: 1;
@@ -595,7 +621,7 @@ nav{
     width: 100%;
     height: 100%;
     z-index: 100;
-    background: black;
+    background: #000000e3;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -603,7 +629,7 @@ nav{
     pointer-events: none;
 }
 
-.show_and_hide_video_modal{
+.show_content{
     opacity: 1 !important;
     z-index: 99 !important;
     pointer-events: fill !important;
@@ -613,7 +639,7 @@ nav{
 }
 .video-container i{
     position: absolute;
-    top: -30px; right: -30px;
+    top: 10px; right: 15px;
     color: var(--secondary);
     font-size: 30px;
     transition: 0.2s;
@@ -624,8 +650,8 @@ nav{
     transform: rotate(90deg);
 }
 .video-container video{
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 10px 5px var(--primary);
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px var(--primary);
     width: 267px;
     height: 476px;
 }

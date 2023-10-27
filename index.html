@@ -13,6 +13,17 @@
   </head>
   <body>
     <!-- <div class="preloader position-fixed"></div> -->
+    <div class="top-header">
+      <div class="container">
+        <div class="content-box d-flex justify-content-between align-items-center flex-column flex-md-row">
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook me-3"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <p>যোগাযোগ: <a href="tel:01772132818">+880 1772 132818</a></p>
+        </div>
+      </div>
+    </div>
     <nav class="navbar navbar-expand-md">
             <div class="container">
               <a class="navbar-brand" href="#">
@@ -119,8 +130,8 @@
 
           <div class="col-md-12 portfolio_content pb-5">
             <ul class="navbar-nav dropdown d-flex flex-row">
-              <li class="nav-item me-5 navigator" id="photo">ছবি</li>
-              <li class="nav-item navigator" id="video">ভিডিও</li>
+              <li class="nav-item me-5 navigator btnBackground" id="photo">ছবি</li>
+              <li class="nav-item navigator" id="video" onclick="addVideoToGallery(this)">ভিডিও</li>
             </ul>
           </div>
         </div>
