@@ -269,6 +269,7 @@ const loader = document.querySelector('.loading_animation');
 
 // append the each video tho the video gallery
 function apendVideo(){
+    if(!videoGallery.classList.contains('hasVideo')){
         for(let i = 1; i<=5; i++){
             let div = document.createElement('div');
             div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
@@ -283,6 +284,8 @@ function apendVideo(){
             
             video.addEventListener('loadeddata', checkIfAllVideosLoaded);
     }
+    }
+        
     const video = document.querySelectorAll('video');
     // function for showing the videos to the modal box
     showVideoToModal(video);
@@ -316,7 +319,7 @@ const videoBtn = document.getElementById('video').onclick = ()=>{
     photoGallery.style.pointerEvents = 'none';
     videoGallery.classList.add('show_and_hide_video_modal');
     apendVideo();
-    videoGallery.classList.add('show_content');
+    videoGallery.classList.add('hasVideo');
 }
 
 function showVideoToModal(video){

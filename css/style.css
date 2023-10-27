@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 body{
-    background: var(--black) !important;
+    background: var(--white) !important;
     /* overflow: hidden; */
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
@@ -293,14 +293,14 @@ nav{
     font-size: 16px;
 }
 .portfolio_section .navigator{
-    background: var(--primary);
+    background-image: linear-gradient(to left,  #0984e3,#ff669b);
     padding: 6px 20px;
     border-radius: 2px;
     color: var(--white);
     cursor: pointer;
 }
 .portfolio_section .navigator:hover{
-    background-color: #0a6bb5;
+    /* background-color: #0a6bb5; */
 }
 .dropdown{
     position:relative;
