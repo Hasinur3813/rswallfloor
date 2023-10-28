@@ -14,6 +14,17 @@ const preLoader = document.querySelector('.preloader');
 //     hidePreloader();
 // })
 
+
+// top header controls
+
+const topHeader = document.querySelector('.top-header');
+function closeTopBar(){
+    topHeader.style.opacity = '0';
+    setTimeout(()=>{
+        topHeader.style.display = 'none';
+    },500)
+}
+
 const navItem = document.querySelectorAll('.nav-menu-item');
 
 navItem.forEach(item => {
@@ -86,9 +97,10 @@ let photoGallery = document.querySelector('.photo_gallery');
 let i = 1;
 // Call the appendImages function every second
 let interval = setInterval(appendImages, 10);
+let photoToRender = 20;
 
 function appendImages() {
-    if (i <= 20) {
+    if (i <= photoToRender) {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
@@ -267,10 +279,12 @@ const videoModalBox = document.querySelector('.video-modal');
 const modalVideo = document.getElementById('modal-video');
 const loader = document.querySelector('.loading_animation');
 
+let videoToRender = 6;
+
 // append the each video tho the video gallery
 function apendVideo(){
     if(!videoGallery.classList.contains('hasVideo')){
-        for(let i = 1; i<=6; i++){
+        for(let i = 1; i<=videoToRender; i++){
             let div = document.createElement('div');
             div.classList.add('col-4', 'col-md-3', 'mb-3', 'video', 'rounded-2');
             let video = document.createElement('video');
