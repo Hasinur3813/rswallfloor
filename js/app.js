@@ -31,11 +31,11 @@ navItem.forEach(item => {
     item.addEventListener('click', () => {
         // Remove the 'active' class from all items
         navItem.forEach(otherItem => {
-            otherItem.classList.remove('active');
+            otherItem.classList.remove('activeNav');
         });
 
         // Add the 'active' class to the clicked item
-        item.classList.add('active');
+        item.classList.add('activeNav');
     });
 });
 

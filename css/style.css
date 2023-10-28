@@ -52,14 +52,14 @@ h1{
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s;
-}
-.top-header .close-top-bar i:hover{
-    transform: rotate(90deg);
+    background: var(--white);
+    padding: 3px 6px;
+    border-radius: 2px;
 }
 .top-header .content-box .social-icons a i{
     background: var(--primary);
     color: white;
-    padding: 6px;
+    padding: 7px;
     border-radius: 50%;
     box-shadow: 0 0 5px 1px var(--primary);
     transition: 0.3s;
@@ -155,8 +155,8 @@ h1{
     opacity: 1;
     bottom:-15px;
 }
-.active{
-    color: white !important;
+.activeNav{
+    color: var(--black) !important;
 }
 @media only screen and (max-width:992px){
     .navbar-items li::before{
