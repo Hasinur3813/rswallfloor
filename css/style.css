@@ -286,6 +286,52 @@ h1{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+
+/* services area */
+.services-area{
+    padding: 50px 0;
+}
+.services-area{
+    padding: 50px 0;
+}
+.services-area .service-inner .header img{
+    overflow: hidden;
+}
+.services-area .service-inner{
+    background: var(--primary);
+    border-radius: 5px;
+    box-shadow: #00000059 0px 3px 8px;
+    transition: 0.3s;
+}
+.services-area .service-inner:hover{
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.services-area .service-inner .footer{
+    padding: 30px 0;
+}
+.services-area .service-inner .footer h6{
+    font-size: 25px;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+.services-area .service-inner .footer h4{
+    font-size: 20px;
+    color: var(--white);
+    background: var(--secondary);
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+.services-area .service-inner .footer{
+    padding: 30px 0;
+}
+
+
+
+
+
+
 /* =========== choose us area =========== */
  .choose-us h1{
     animation: flick 1.5s linear infinite;
