@@ -80,6 +80,9 @@ h1{
 .top-header .content-box .social-icons .fa-youtube:hover{
     color: red !important;
 }
+.top-header .content-box .social-icons .fa-whatsapp:hover{
+    color: #25d366 !important;
+}
 
 
 .top-header p{
