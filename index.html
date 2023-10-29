@@ -13,16 +13,25 @@
   </head>
   <body>
     <!-- <div class="preloader position-fixed"></div> -->
+
+    <!-- top header area -->
     <div class="top-header">
-      <div class="container-fluid">
-        <div class="content-box d-flex justify-content-md-between flex-column flex-md-row">
+      <div class="container">
+        <div class="content-box d-flex gap-2 gap-md-0 justify-content-between align-items-center flex-column flex-md-row">
           <div class="social-icons">
-            <p>hasinur</p>
+            <a href="https://www.facebook.com/rsintl" target="_blank"><i class="fa-brands fa-facebook me-3"></i></a>
+            <a href="https://www.youtube.com/@rs3dwallpaperfloor882" target="_blank"><i class="fa-brands fa-youtube me-3"></i></a>
+            <a href="https://wa.me/+8801772132818" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
-          <a href="#">01773061332</a>
+          <p class="me-md-5"><span>যোগাযোগঃ</span> <a href="tel:01772132818">+880-1772-132818</a></p>
         </div>
       </div>
+      <div class="close-top-bar">
+        <i class="fa-solid fa-xmark" onclick="closeTopBar()"></i>
+      </div>
     </div>
+
+    <!-- navbar area -->
     <nav class="navbar navbar-expand-md">
             <div class="container">
               <a class="navbar-brand" href="#">
@@ -35,7 +44,7 @@
               <div class="collapse navbar-collapse navbar-items" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
                   <li class="nav-item">
-                    <a class="nav-link active nav-menu-item" href="#">হোম</a>
+                    <a class="nav-link activeNav nav-menu-item" href="#">হোম</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link nav-menu-item" href="#">আমাদের সম্পর্কে</a>
@@ -91,10 +100,57 @@
                 <span data-target = '5000'>5000+</span>
                 <p>প্রজেক্ট সম্পন্ন</p>
               </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- services area -->
+    <div class="services-area ">
+      <div class="container">
+        <div class="row text-center">
+          <h1>সার্ভিস সমূহ</h1>
+          <p class="mb-5 text-dark"> এক নজরে আমাদের সার্ভিস সমূহ</p>
+          <div class="col-md-4 mb-5 mb-md-0 service-box">
+            <div class="service-inner">
+              <div class="header">
+                <img src="./img/wallpaper.jpg" class="img-fluid rounded-2" alt="wallpaper.jpg"/>
+              </div>
+              <div class="footer">
+                <h6>থ্রিডি ওয়ালপেপার</h6>
+                <h4>১৪০ টাকা স্কয়ারফুট</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-5 mb-md-0 service-box">
+            <div class="service-inner">
+              <div class="header">
+                <img src="./img/celingpaper.jpg" class="img-fluid rounded-2" alt="wallpaper.jpg"/>
+              </div>
+              <div class="footer">
+                <h6>থ্রিডি সিলিংপেপার</h6>
+                <h4>১৪০ টাকা স্কয়ারফুট</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 service-box">
+            <div class="service-inner">
+              <div class="header">
+                <img src="./img/floor.jpg" class="img-fluid rounded-2" alt="wallpaper.jpg"/>
+              </div>
+              <div class="footer">
+                <h6>থ্রিডি ইপোক্সি ফ্লোর</h6>
+                <h4>৪৫০ টাকা স্কয়ারফুট</h4>
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>
     </div>
+
     <!-- about us area -->
     <div class="choose-us mb-2 mb-md-5 pt-5">
       <div class="container">

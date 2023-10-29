@@ -9,11 +9,6 @@
 }
 body{
     background: var(--white) !important;
-    /* background-image: url(/img/main_bg.jpg);
-    background-size: cover;
-    background-position:fixed;
-    background-repeat: no-repeat; */
-    /* overflow: hidden; */
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
 
@@ -21,7 +16,7 @@ body{
     --primary: #0984e3;
     --secondary: #ff669b;
     --white: #ffffff;
-    --black:#0b2744;
+    --black:#08294d;
 }
 ::-webkit-scrollbar{
     width: 12px;
@@ -40,10 +35,68 @@ h1{
     color: var(--secondary) !important;
     font-weight: 700 !important;
 }
-/* =========== Navbar =========== */
-nav{
-    background:var(--black) !important;
+
+
+/* top header (contact area) */
+.top-header{
+    background:var(--black);
+    padding: 8px 0;
+    position: relative;
+    transition: 0.3s ease-out;
 }
+.top-header .close-top-bar i{
+    position:absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--secondary);
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: var(--white);
+    padding: 3px 6px;
+    border-radius: 2px;
+}
+.top-header .content-box .social-icons a i{
+    background: var(--primary);
+    color: white;
+    padding: 7px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 1px var(--primary);
+    transition: 0.3s;
+    cursor:pointer;
+    display: inline-block;
+}
+.top-header .content-box .social-icons a{
+    display: inline-block;
+    text-decoration: none;
+}
+.top-header .content-box .social-icons a i:hover{
+    background: var(--white);
+    box-shadow: 0 0 5px rgba(199, 198, 198, 0.979);
+}
+.top-header .content-box .social-icons .fa-facebook:hover{
+    color: #2e5bba !important;
+}
+.top-header .content-box .social-icons .fa-youtube:hover{
+    color: red !important;
+}
+.top-header .content-box .social-icons .fa-whatsapp:hover{
+    color: #25d366 !important;
+}
+
+
+.top-header p{
+    margin: 0;
+}
+.top-header p span{
+    color: var(--primary);
+    margin-right: 5px;
+}
+.top-header p a{
+    color: var(--secondary);
+    text-decoration: none;
+}
+/* =========== Navbar =========== */
 .navbar-brand{
     width: 112px;
 }
@@ -102,8 +155,8 @@ nav{
     opacity: 1;
     bottom:-15px;
 }
-.active{
-    color: white !important;
+.activeNav{
+    color: var(--black) !important;
 }
 @media only screen and (max-width:992px){
     .navbar-items li::before{
@@ -236,6 +289,52 @@ nav{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+
+/* services area */
+.services-area{
+    padding: 50px 0;
+}
+.services-area{
+    padding: 50px 0;
+}
+.services-area .service-inner .header img{
+    overflow: hidden;
+}
+.services-area .service-inner{
+    background: var(--primary);
+    border-radius: 5px;
+    box-shadow: #00000059 0px 3px 8px;
+    transition: 0.3s;
+}
+.services-area .service-inner:hover{
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.services-area .service-inner .footer{
+    padding: 30px 0;
+}
+.services-area .service-inner .footer h6{
+    font-size: 25px;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+.services-area .service-inner .footer h4{
+    font-size: 20px;
+    color: var(--white);
+    background: var(--secondary);
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+.services-area .service-inner .footer{
+    padding: 30px 0;
+}
+
+
+
+
+
+
 /* =========== choose us area =========== */
  .choose-us h1{
     animation: flick 1.5s linear infinite;
@@ -284,7 +383,7 @@ nav{
     font-size: 16px;
 }
 .portfolio_section .navigator{
-    background: var(--primary);
+    background-image: linear-gradient(to left,  #0984e3,#ff669b);
     padding: 6px 20px;
     border-radius: 2px;
     color: var(--white);
