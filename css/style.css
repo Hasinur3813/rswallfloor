@@ -301,7 +301,8 @@ h1{
     overflow: hidden;
 }
 .services-area .service-inner{
-    background: var(--primary);
+    /* background: var(--primary); */
+    background-image: linear-gradient(to right, #0984e3,#ff669b);
     border-radius: 5px;
     box-shadow: #00000059 0px 3px 8px;
     transition: 0.3s;
