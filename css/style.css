@@ -290,9 +290,18 @@ h1{
 }
 
 
+
+:root {
+    --primary: #0984e3;
+    --secondary: #ff669b;
+    --white: #ffffff;
+    --black:#08294d;
+}
+
 /* services area */
 .services-area{
     padding: 50px 0;
+    /* background-image: linear-gradient(to right, #ffffff, #0985e33b ) */
 }
 .services-area{
     padding: 50px 0;
@@ -300,22 +309,23 @@ h1{
 .services-area .service-inner .header img{
     overflow: hidden;
 }
-.services-area .service-inner{
-    background: var(--primary);
+
+.services-area .service-box .service-inner{
+    background-image: linear-gradient(to right, #0985e334, #ff669c9a );
     border-radius: 5px;
     box-shadow: #00000059 0px 3px 8px;
     transition: 0.3s;
 }
 .services-area .service-inner:hover{
     
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
 .services-area .service-inner .footer{
     padding: 30px 0;
 }
 .services-area .service-inner .footer h6{
     font-size: 25px;
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 15px;
 }
 .services-area .service-inner .footer h4{
