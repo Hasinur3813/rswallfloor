@@ -251,20 +251,6 @@ h1{
     color: var(--secondary);
 }
 
-/* costing idea page */
-.costing-idea{
-    position:fixed;
-    width: 0;
-    height: 100%;
-    background: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0;
-    transition: 0.3s;
-}
-
 /* =========== counter area =========== */
 .counter-area{
     padding: 50px 0 80px;
@@ -494,15 +480,15 @@ h1{
 
 /* portfolio thumbnail box */
 
-.thumbnail-box{
+.thumbnail-box, .design-thumbnail-box{
     overflow:hidden;
     border-radius: 5px;
 }
-.thumbnail-box:hover .item{
+.thumbnail-box:hover .image, .design-thumbnail-box:hover .image{
     transform:scale(1.2);
     cursor:pointer;
 }
-.item{
+.image{
     border-radius: 5px;
     transition: 0.3s;
 }
@@ -775,4 +761,40 @@ h1{
     box-shadow: 0 0 2px 1px var(--primary);
     width: 267px;
     height: 476px;
+    /* color:rgba(9, 133, 227, 0.158); */
+}
+
+
+/* design section */
+.design-section{
+    margin-top: 100px !important;
+    background-image:linear-gradient(rgba(9, 133, 227, 0.158),rgba(9, 133, 227, 0.158)),url(/img/design-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.design-section p{
+    color: var(--black);
+    margin-top: 20px;
+}
+.design-navigator-box{
+    flex-wrap: wrap !important;
+    transition:all 1s !important;
+}
+
+.design-navigator-box .design_navigator{
+    background: var(--secondary);
+    padding: 6px 20px;
+    border-radius: 2px;
+    color: var(--white);
+    cursor: pointer;
+    transition:all 1s !important;
+    margin-top: 15px;
+    margin-right: 10px;
+    list-style: none;
+    display: inline-block;
+
+}
+.design-navigator-box .design_navigator:hover{
+    background-image: linear-gradient(to right,  #0984e3,#ff669b);
 }

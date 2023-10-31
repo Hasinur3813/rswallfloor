@@ -111,7 +111,7 @@ function removeDropdown(){
 };
 
 let photoGallery = document.querySelector('.photo_gallery');
-
+const designSectionGallery = document.getElementById('design-section-gallery');
 let i = 1;
 // Call the appendImages function every second
 let interval = setInterval(appendImages, 10);
@@ -119,11 +119,18 @@ let photoToRender = 20;
 
 function appendImages() {
     if (i <= photoToRender) {
-        let div = document.createElement('div');
-        div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
-        let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
-        div.innerHTML = item;
-        photoGallery.appendChild(div);
+        // creating div for image gallery
+        let divForImageGallery = document.createElement('div');
+        // adding classes for the div
+        divForImageGallery.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
+        // images for the image gallery
+        let itemForImageGallery = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 image">`;
+        // move the images in the created div
+        divForImageGallery.innerHTML = itemForImageGallery;
+        // now move all the divs to photogallery
+        photoGallery.appendChild(divForImageGallery);
+        // call the below function for append the images to the desgin section gallery
+        proccessDesignSection();
         
         i++; // Increment i to append the next item in the next iteration
     } else {
@@ -131,6 +138,19 @@ function appendImages() {
         i = 1;
     }
 };
+
+function proccessDesignSection(){
+       // creating div for design section gallery
+       let divForDesgnGallery = document.createElement('div');
+       // adding classes for the div
+       divForDesgnGallery.classList.add('col-md-2', 'col-4', 'mb-3','design-thumbnail-box');
+       // images for the design section gallery
+       let itemForDisgnGallery = `<img src="./design/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 image">`;
+       // move the images in the created div
+       divForDesgnGallery.innerHTML = itemForDisgnGallery;
+       // now move all the divs to photogallery
+       designSectionGallery.appendChild(divForDesgnGallery);
+}
 
 const modalBox = document.getElementById('modal-box');
 const imageNumber = document.querySelector('.image-number');
@@ -370,3 +390,24 @@ photoBtn.onclick = ()=>{
     videoGallery.style.display = 'none';
     photoGallery.style.display = 'flex';
 }
+
+
+
+
+// Call the appendImages function every second
+
+
+// function appendImages() {
+//     if (i <= photoToRender) {
+//         let div = document.createElement('div');
+//         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
+//         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
+//         div.innerHTML = item;
+//         designSectionGallery.appendChild(div);
+        
+//         i++; // Increment i to append the next item in the next iteration
+//     } else {
+//         clearInterval(interval); // Stop the interval when i reaches 51 (after 50 items)
+//         i = 1;
+//     }
+// };
