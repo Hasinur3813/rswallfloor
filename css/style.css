@@ -768,7 +768,7 @@ h1{
 /* design section */
 .design-section{
     margin-top: 100px !important;
-    background-image:linear-gradient(rgba(9, 133, 227, 0.158),rgba(9, 133, 227, 0.158)),url(/img/design-bg.jpg);
+    background-image:linear-gradient(rgba(9, 133, 227, 0.158),rgba(9, 133, 227, 0.158)),url(../img/design-bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
