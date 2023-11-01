@@ -120,7 +120,9 @@ function appendImages() {
         // creating div for image gallery
         let divForImageGallery = document.createElement('div');
         // adding classes for the div
-        divForImageGallery.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
+        divForImageGallery.classList.add('col-md-2', 'col-4', 'mb-3','thumbnail-box');
+        divForImageGallery.setAttribute('data-aos', 'zoom-in');
+        divForImageGallery.setAttribute('data-aos-delay', '500');
         // images for the image gallery
         let itemForImageGallery = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i},'portfolioGallery')" alt="portfolio${i}.jpg" class="w-100 image">`;
         // move the images in the created div
@@ -128,7 +130,7 @@ function appendImages() {
         // now move all the divs to photogallery
         photoGallery.appendChild(divForImageGallery);
         // call the below function for append the images to the desgin section gallery
-    }
+    };
     proccessDesignSection();
 };
 
@@ -140,6 +142,8 @@ function proccessDesignSection(){
         divForDesgnGallery.classList.add('col-md-2', 'col-4', 'mb-3','design-thumbnail-box');
         // images for the design section gallery
         let itemForDisgnGallery = `<img src="./design/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i},'designSectionGallery')" alt="portfolio${i}.jpg" class="w-100 image">`;
+        divForImageGallery.setAttribute('data-aos', 'zoom-in');
+        divForImageGallery.setAttribute('data-aos-delay', '500');
         // move the images in the created div
         divForDesgnGallery.innerHTML = itemForDisgnGallery;
         // now move all the divs to photogallery

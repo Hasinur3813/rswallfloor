@@ -9,6 +9,7 @@
 }
 body{
     background: var(--white) !important;
+    overflow-x: hidden !important;
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
 
@@ -323,7 +324,7 @@ h1{
     z-index: -1;
     pointer-events: none;
     transition: 0.5s;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 .service-inner .overlay h5{
     margin-bottom: 50px;
@@ -341,7 +342,7 @@ h1{
 }
 .services-area .service-inner:hover .overlay{
     opacity: 1;
-    z-index:1;
+    z-index:10;
     height: 100%
 }
 .services-area .service-inner:hover{
