@@ -14,7 +14,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
-    <!-- <div class="preloader position-fixed"></div> -->
+    <div class="preloader position-fixed">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- top header area -->
     <div class="top-header" data-aos="fade-down">
@@ -192,8 +199,10 @@
               </div>
             </div>
           </div>
-
-
+          
+          <div class="design-page-link">
+            <a href="#design-section">ডিজাইন দেখতে এখানে ক্লিক করুন</a>
+          </div>
         </div>
       </div>
     </div>
@@ -293,14 +302,14 @@
 
     <!-- design section -->
 
-    <div class="design-section pb-5">
+    <div class="design-section pb-5" id="design-section">
     
       <div class="container">
         <div class="row">
           <h1 class="text-center mt-5" data-aos="fade-up" data-aos-duration="500">ডিজাইন সমূহ</h1>
           <p class="text-center mb-3" data-aos="fade-up" data-aos-duration="1000"> আমাদের প্রায় ৫০০০ এর বেশি ডিজাইন আছে সেখান থেকে আপনার কাঙ্খিত ডিজাইনটি বেছে নিতে পারবেন। </p>
 
-          <div class="col-md-12 mt-3 design-navigator-box mb-5">
+          <!-- <div class="col-md-12 mt-3 design-navigator-box mb-5">
             <ul class=" d-flex ms-0 ps-0 flex-row flex-wrap" data-aos="fade-right" data-aos-duration="500">
               <li class=" design_navigator btnBackground" id="all">মোট</li>
               <li class=" design_navigator" id="wall">ওয়াল</li>
@@ -308,9 +317,9 @@
               <li class=" design_navigator" id="floor">ফ্লোর</li>
             </ul>
           </div>
-        </div>
+        </div> -->
          <!-- image gallery -->
-         <div class="row design-section-gallery justify-content-center align-items-center" id="design-section-gallery"></div>
+         <div class="row design-section-gallery mt-5 justify-content-center align-items-center" id="design-section-gallery"></div>
 
          <div class="openDesignPage text-center mt-5">
            <a href="#" id="seeMore" class="ms-auto">আরো দেখুন<i class="fa-solid fa-arrow-right"></i></a>

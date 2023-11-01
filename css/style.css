@@ -10,6 +10,7 @@
 body{
     background: var(--white) !important;
     overflow-x: hidden !important;
+    overflow: hidden;
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
 
@@ -293,7 +294,7 @@ h1{
 /* services area */
 .services-area{
     padding: 50px 0;
-    /* background-image: linear-gradient(to right, #ffffff, #0985e33b ) */
+    background-image: linear-gradient(to right, #ffffff, #0985e321 )
 }
 .services-area{
     padding: 50px 0;
@@ -367,6 +368,37 @@ h1{
 }
 .services-area .service-inner .footer{
     padding: 30px 0;
+}
+.design-page-link a{
+    text-decoration: none;
+    color:var(--white);
+    background: var(--primary);
+    display: inline-block;
+    padding: 10px 14px;
+    margin-top: 50px;
+    transition: all 0.3s;
+    animation: linkAnimate 3s linear infinite;
+    box-shadow: inset 0 0 3px 1px white;
+}
+.design-page-link a:hover{
+    background: #2e5bba;
+}
+@keyframes linkAnimate {
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1.);
+    }
 }
 
 /* =========== choose us area =========== */
@@ -686,13 +718,71 @@ h1{
 .preloader{
     width: 100% !important;
     height: 100% !important;
-    background: #000000;
-    background-image: url(../img/preloader.gif);
+    background: #20202086;
     background-size: 400px;
     background-position: center;
     background-repeat: no-repeat;
     z-index:99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--secondary);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
 
 /* video gallery */
 .video_gallery{
@@ -770,7 +860,7 @@ h1{
 /* design section */
 .design-section{
     margin-top: 100px !important;
-    background-image:linear-gradient(rgba(9, 133, 227, 0.158),rgba(9, 133, 227, 0.158)),url(../img/design-bg.jpg);
+    background-image:linear-gradient(rgba(9, 133, 227, 0.158),rgba(9, 133, 227, 0.158)),url(../img/bg-d.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
