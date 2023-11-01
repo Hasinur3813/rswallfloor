@@ -142,8 +142,8 @@ function proccessDesignSection(){
         divForDesgnGallery.classList.add('col-md-2', 'col-4', 'mb-3','design-thumbnail-box');
         // images for the design section gallery
         let itemForDisgnGallery = `<img src="./design/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i},'designSectionGallery')" alt="portfolio${i}.jpg" class="w-100 image">`;
-        divForImageGallery.setAttribute('data-aos', 'zoom-in');
-        divForImageGallery.setAttribute('data-aos-delay', '500');
+        divForDesgnGallery.setAttribute('data-aos', 'zoom-in');
+        divForDesgnGallery.setAttribute('data-aos-delay', '500');
         // move the images in the created div
         divForDesgnGallery.innerHTML = itemForDisgnGallery;
         // now move all the divs to photogallery
