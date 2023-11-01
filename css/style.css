@@ -491,6 +491,7 @@ h1{
 .image{
     border-radius: 5px;
     transition: 0.3s;
+    object-fit: cover;
 }
 
 
@@ -775,7 +776,7 @@ h1{
 }
 .design-section p{
     color: var(--black);
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .design-navigator-box{
     flex-wrap: wrap !important;
@@ -797,4 +798,25 @@ h1{
 }
 .design-navigator-box .design_navigator:hover{
     background-image: linear-gradient(to right,  #0984e3,#ff669b);
+}
+
+.openDesignPage a{
+    text-decoration: none;
+    color: var(--white);
+    background: var(--primary);
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.openDesignPage a i{
+    margin-left: 8px;
+    transition: all 0.3s;
+}
+.openDesignPage a:hover{
+    background: #2e5bba;
+}
+.openDesignPage a:hover i{
+    transform: translateX(5px);
 }

@@ -112,45 +112,42 @@ function removeDropdown(){
 
 let photoGallery = document.querySelector('.photo_gallery');
 const designSectionGallery = document.getElementById('design-section-gallery');
-let i = 1;
-// Call the appendImages function every second
-let interval = setInterval(appendImages, 10);
+
 let photoToRender = 20;
 
 function appendImages() {
-    if (i <= photoToRender) {
+    for (let i = 1; i<= photoToRender; i++) {
         // creating div for image gallery
         let divForImageGallery = document.createElement('div');
         // adding classes for the div
         divForImageGallery.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
         // images for the image gallery
-        let itemForImageGallery = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 image">`;
+        let itemForImageGallery = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i},'portfolioGallery')" alt="portfolio${i}.jpg" class="w-100 image">`;
         // move the images in the created div
         divForImageGallery.innerHTML = itemForImageGallery;
         // now move all the divs to photogallery
         photoGallery.appendChild(divForImageGallery);
         // call the below function for append the images to the desgin section gallery
-        proccessDesignSection();
-        
-        i++; // Increment i to append the next item in the next iteration
-    } else {
-        clearInterval(interval); // Stop the interval when i reaches 51 (after 50 items)
-        i = 1;
     }
+    proccessDesignSection();
 };
 
 function proccessDesignSection(){
-       // creating div for design section gallery
-       let divForDesgnGallery = document.createElement('div');
-       // adding classes for the div
-       divForDesgnGallery.classList.add('col-md-2', 'col-4', 'mb-3','design-thumbnail-box');
-       // images for the design section gallery
-       let itemForDisgnGallery = `<img src="./design/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 image">`;
-       // move the images in the created div
-       divForDesgnGallery.innerHTML = itemForDisgnGallery;
-       // now move all the divs to photogallery
-       designSectionGallery.appendChild(divForDesgnGallery);
-}
+    for( let i = 1; i<= 29; i++){
+        // creating div for design section gallery
+        let divForDesgnGallery = document.createElement('div');
+        // adding classes for the div
+        divForDesgnGallery.classList.add('col-md-2', 'col-4', 'mb-3','design-thumbnail-box');
+        // images for the design section gallery
+        let itemForDisgnGallery = `<img src="./design/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i},'designSectionGallery')" alt="portfolio${i}.jpg" class="w-100 image">`;
+        // move the images in the created div
+        divForDesgnGallery.innerHTML = itemForDisgnGallery;
+        // now move all the divs to photogallery
+        designSectionGallery.appendChild(divForDesgnGallery);
+    }
+};
+// now call the function to append the images
+appendImages();
 
 const modalBox = document.getElementById('modal-box');
 const imageNumber = document.querySelector('.image-number');
@@ -167,7 +164,7 @@ function openModal(){
     document.body.style.overflow = 'hidden';
     document.addEventListener('contextmenu', preventContextMenu);
     window.addEventListener('keydown', slidingByArrow);
-}
+};
 // function for closing the modal
 function closeModal(){
     modalBox.style.opacity = '0';
@@ -177,7 +174,7 @@ function closeModal(){
     document.removeEventListener('contextmenu', preventContextMenu);
     window.removeEventListener('keydown', slidingByArrow);
     imageOverlay.style.opacity = '1';
-}
+};
 // Keyboard arrow navigation
 function slidingByArrow(event){
     if (event.key === 'ArrowLeft') {
@@ -187,21 +184,32 @@ function slidingByArrow(event){
         // Navigate to the next image
         plusSlide(1);
     }
-}
+};
    
 // function for prevent the context menu for the image safety
 function preventContextMenu(event){
     event.preventDefault();
-}
+};
 
 let slideIndex = 1;
 
 // show the clicked image in the modal box
-function currentSlide (n){
-    slideIndex = n;
+function currentSlide (n, galleryDirection){
+    if(galleryDirection === 'portfolioGallery'){
+        slideIndex = n;
+        storeDataImage.thumbnailBox = portfolioSection.thumbnailBox;
+        storeDataImage.imageSource = portfolioSection.imageSource;
+        storeDataImage.imageAlt = portfolioSection.imageAlt;
+
+    }else if( galleryDirection === 'designSectionGallery'){
+        slideIndex = n;
+        storeDataImage.thumbnailBox = designSection.thumbnailBox;
+        storeDataImage.imageSource = designSection.imageSource;
+        storeDataImage.imageAlt = designSection.imageAlt;
+    }
     showSlide(slideIndex);
    
-}
+};
 
 // function for control sliding by prev and next button
 function plusSlide(n){
@@ -209,48 +217,44 @@ function plusSlide(n){
     imageOverlay.style.opacity = '1';
     // sliding the next image
     showSlide(slideIndex += n);
-}
-// show slide with some of the conditions
-function showSlide(n){
-    const thumbnailBox = document.querySelectorAll('.thumbnail-box');
-    
-    if(n > thumbnailBox.length){
-        slideIndex = thumbnailBox.length;
-        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
-        modalImage.src = mainImgSource;
-
-        // set the opacity -0 for the imge overlay when the image is loaded
-        modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.opacity = '0';
-            modalImage.alt = `portfolio${slideIndex}.jpg`;
-            imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
-        });
-        
-
-    } else if( n < 1){
-        slideIndex = 1;
-        let mainImgSource = `./portfolio/portfolio/portfolio(${slideIndex}).jpg`;
-        modalImage.src = mainImgSource;
-        
-        // set the opacity -0 for the imge overlay when the image is loaded
-        modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.opacity = '0';
-            modalImage.alt = `portfolio${slideIndex}.jpg`;
-            imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
-        });
-     
-    }else{
-        let mainImgSource = `./portfolio/portfolio/portfolio(${n}).jpg`;
-        modalImage.src = mainImgSource;
-        
-        // set the opacity -0 for the imge overlay when the image is loaded
-        modalImage.addEventListener('load', ()=>{
-            imageOverlay.style.opacity = '0';
-            modalImage.alt = `portfolio${slideIndex}.jpg`;
-            imageNumber.innerHTML = `${n}/${thumbnailBox.length}`;
-        });
-    }  
 };
+
+let storeDataImage = {};
+
+let designSection = {
+    thumbnailBox:'.design-thumbnail-box',
+    imageSource: './design/design/design',
+    imageAlt: 'design'
+};
+
+let portfolioSection = {
+    thumbnailBox:'.thumbnail-box',
+    imageSource: './portfolio/portfolio/portfolio',
+    imageAlt: 'portfolio'
+};
+
+// show slide with some of the conditions
+function showSlide(n) {
+    const thumbnailBox = document.querySelectorAll(storeDataImage.thumbnailBox);
+    slideIndex = n;
+
+    if (n > thumbnailBox.length) {
+        slideIndex = thumbnailBox.length;
+    } else if (n < 1) {
+        slideIndex = 1;
+    }
+
+    let mainImgSource = `${storeDataImage.imageSource}(${slideIndex}).jpg`;
+    modalImage.src = mainImgSource;
+
+    // Set the opacity to 0 for the image overlay when the image is loaded
+    modalImage.addEventListener('load', () => {
+        imageOverlay.style.opacity = '0';
+        modalImage.alt = `${storeDataImage.imageAlt}${slideIndex}.jpg`;
+        imageNumber.innerHTML = `${slideIndex}/${thumbnailBox.length}`;
+    });
+}
+
 
 const imgDownloadLink = document.getElementById('imgDownload');
 
