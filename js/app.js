@@ -36,22 +36,6 @@ navItem.forEach((item) => {
   });
 });
 
-// costing idea
-
-const costingIdeaPage = document.getElementById("costing-idea");
-
-function showCositngIdea(event) {
-  event.preventDefault();
-  costingIdeaPage.style.width = "100%";
-  costingIdeaPage.style.opacity = "1";
-  costingIdeaPage.style.zIndex = "100";
-}
-const closeIdeaPage = (document.getElementById("closeIdeaPage").onclick =
-  () => {
-    costingIdeaPage.style.width = "0";
-    costingIdeaPage.style.opacity = "0";
-    costingIdeaPage.style.zIndex = "-1";
-  });
 
 // counting function for counter area
 
@@ -419,3 +403,5 @@ photoBtn.onclick = () => {
 //         i = 1;
 //     }
 // };
+
+const inputElement = document.getElementById('width');

@@ -39,6 +39,27 @@ h1{
 }
 
 
+.whatsapp-contact{
+    bottom: 20px;
+    right:10px;
+    z-index: 100;
+    cursor:pointer;
+    
+}
+.whatsapp-contact i{
+    color: var(--white);
+    background: #25d366;
+    padding: 8px;
+    border-radius: 50%;
+    font-size:22px;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.whatsapp-contact:hover i{
+    background: var(--white);
+    color: #25d366;
+}
+
 /* top header (contact area) */
 .top-header{
     background:var(--black);
@@ -164,6 +185,9 @@ h1{
     .navbar-items li::before{
         display:none;
     }
+    .navbar-items li:hover a{
+        color:var(--primary) !important;
+    }
     .navbar-items li::after{
         width:7px;
         height:7px;
@@ -256,10 +280,10 @@ h1{
 /* =========== counter area =========== */
 .counter-area{
     padding: 50px 0 80px;
-    background-image: url('../img/bg.gif');
+    background-image: url('../img/counter-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
 }
 .counter-area p{
     color: var(--black);

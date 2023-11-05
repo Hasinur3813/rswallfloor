@@ -14,6 +14,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
+
+    <!-- website preloader -->
     <div class="preloader position-fixed">
       <div class="lds-ellipsis">
         <div></div>
@@ -23,8 +25,14 @@
       </div>
     </div>
 
+    <!-- whatsapp contact -->
+
+    <div class="whatsapp-contact position-fixed">
+      <a href="https://wa.me/+8801772132818" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
     <!-- top header area -->
-    <div class="top-header" data-aos="fade-down">
+    <div class="top-header" data-aos="fade-down" id="home">
       <div class="container">
         <div class="content-box d-flex gap-2 gap-md-0 justify-content-between align-items-center flex-column flex-md-row">
           <div class="social-icons">
@@ -53,20 +61,17 @@
               <div class="collapse navbar-collapse navbar-items" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
                   <li class="nav-item">
-                    <a class="nav-link activeNav nav-menu-item" href="#">হোম</a>
+                    <a class="nav-link activeNav nav-menu-item" href="#home">হোম</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-menu-item" href="#">আমাদের সম্পর্কে</a>
+                    <a class="nav-link nav-menu-item" href="#service">সার্ভিস সমূহ</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-menu-item" href="#">সার্ভিস সমূহ</a>
+                    <a class="nav-link nav-menu-item" href="#portfolio">পোর্টফোলিও</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-menu-item" href="#">ডিজাইন</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-menu-item" href="#">পোর্টফোলিও</a>
-                  </li>
+                    <a class="nav-link nav-menu-item" href="#design-section">ডিজাইন</a>
+                  </li>                
                   <li class="nav-item">
                     <a class="nav-link nav-menu-item" href="#">যোগাযোগ</a>
                   </li>
@@ -75,7 +80,7 @@
             </div>
     </nav>
         <!-- main header area -->
-      <div class="main-header">
+      <div class="main-header" id="home">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
@@ -83,26 +88,48 @@
                   <h2 data-aos="zoom-out">বেস্ট থ্রিডি ওয়ালপেপার ডিজাইন ফর ইউর হোম</h2>
                   <p data-aos="fade-up">টাইলস ও রঙের ঝামেলা এড়িয়ে আমাদের<strong> থ্রিডি ওয়ালপেপার</strong>, <strong>থ্রিডি সিলিং পেপার</strong> এবং <strong>থ্রিডি ইপোক্সি ফ্লোর</strong> দিয়ে আপনার বাসাকে দিন আভিজাত্যের ছোয়া। থ্রিডি ওয়ালপেপার, থ্রিডি সিলিং পেপারে পাবেন ১০ বছরের গ্যারান্টি  এবং থ্রিডি ফ্লোরে পাবেন লাইফটাইম গ্যারান্টি।</p>
                   <a href="#" class="mt-3 me-3 me-md-0" data-aos="fade-right">আরো জানুন</a>
-                  <a href="#" class="mt-3 ms-md-5" onclick="showCositngIdea(event)" data-aos="fade-left">আনুমানিক খরচ</a>
+                  <a href="#" class="mt-3 ms-md-5" onclick="showCostingIdea(event)" data-aos="fade-left">আনুমানিক খরচ</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- costing idea -->
-      <div class="costing-idea" id="costing-idea">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10">
-              <h3>This page is still under construction</h3>
-              <button id="closeIdeaPage">Close</button>
 
-          
-            </div>
+      <!-- costing idea page -->
+      <div class="costing-idea" id="costing-idea">
+        <button class="p-1 border-0 m-2 ps-3 pe-3 text-white rounded" id="home-btn" onclick="closePage()">হোম</button>
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-10 text-center calculation-page">
+              <div class="calculation-box mt-5">
+                <h4>নিচের বক্সে আপনার রুমের মাপ দিনঃ</h4>
+                <div class="input-box">
+                  <label for="height">উচ্চতাঃ</label>
+                  <input type="text" name="height" placeholder="৯ ফুট" id="height">
+
+                  <label for="width" class="mt-3">চওড়াঃ</label>
+                  <input type="text" name="width" placeholder="১২ ফুট" id="width">                 
+                </div>
+                <input type="button" value="খরচ দেখুন" id="result-btn">
+
+
+                <div class="box" id="result-box">
+                  <h2>আপনার রুমের খরচ সমূহঃ</h2>
+                  <ul>
+                    <li><span>১</span> এক দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="singleWall">১২০০০ টাকা।</p></li>
+                    <li><span>২</span> চারপাশের দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="allWall">১২০০০ টাকা।</p></li>
+                    <li><span>৩</span>সিলিং এ খরচ পড়বে <p style="display: inline-block; color: black;" id="celing">১২০০০ টাকা।</p></li>
+                    <li><span>৪</span>ফ্লোরে (মেঝে) খরচ পড়বে <p style="display: inline-block; color: black;" id="floor">১২০০০ টাকা।</p></li>
+                    <li><span>৫</span>দেয়াল, সিলিং এবং ফ্লোর(মেঝে) সহ মোট খরচ পড়বে <p style="display: inline-block; color: black;" id="all">১২০০০ টাকা।</p></li>
+                  </ul>
+                </div>
+              </div>
+
+              
+            </div> 
+          </div> 
           </div>
         </div>
-        
-
       </div>
     <!-- counter area -->
 
@@ -129,7 +156,7 @@
     </div>
 
     <!-- services area -->
-    <div class="services-area ">
+    <div class="services-area " id="service">
       <div class="container">
         <div class="row text-center">
           <h1 data-aos="fade-up" data-aos-duration="500">সার্ভিস সমূহ</h1>
@@ -225,14 +252,14 @@
           </div>
           <div class="col-md-6 title_video">
             <div class="iframe w-100 h-100" data-aos="zoom-in" data-aos-duration="500">
-              <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8" allowfullscreen="true"></iframe>
+              <!-- <iframe class="w-100 h-100 rounded" src="https://shorturl.at/eIPT8" allowfullscreen="true"></iframe> -->
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- portflio section -->
-    <div class="portfolio_section mt-md-5">
+    <div class="portfolio_section mt-md-5" id="portfolio">
 
       <div class="container">
         <div class="row">
@@ -331,6 +358,7 @@
     <script src="./js/app.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/costing-page.js"></script>
 
     <script>
       AOS.init();

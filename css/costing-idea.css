@@ -1,3 +1,11 @@
+:root {
+    --primary: #0984e3;
+    --secondary: #ff669b;
+    --white: #ffffff;
+    --black:#08294d;
+}
+
+
 /* costing idea page */
 .costing-idea{
     position:fixed;
@@ -7,7 +15,119 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: 0;
     opacity: 0;
     transition: 0.3s;
+    overflow-y: auto;
 }
+
+#home-btn{
+  background: var(--primary);
+}
+#home-btn:hover{
+  background: #0056b3;
+}
+
+
+.calculation-box {
+    position: relative;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+
+  .calculation-box h4 {
+    font-size: 20px;
+    color:var(--primary);
+  }
+
+  .input-box {
+    margin: 20px 0;
+  }
+
+  .input-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: var(--black);
+  }
+
+  .input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  input[type="button"] {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  input[type="button"]:hover {
+    background-color: #0056b3;
+  }
+
+  .box {
+    background: #fff;
+    max-width: 400px;
+    display: inline-block;
+    height: 0;
+    opacity: 0;
+    transform: scale(0);
+    overflow: hidden;
+    margin-top: 50px;
+    border-bottom: 20px solid #03a9f4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.3s;
+  }
+  .box h2 {
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .box ul {
+    position: relative;
+    background: #fff;
+    text-align: left;
+    padding-left: 0;
+  }
+  .box ul li {
+    list-style: none;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+  }
+  .box ul li span {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #25bcff;
+    color: #fff;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-2px);
+  }
