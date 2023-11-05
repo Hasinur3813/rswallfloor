@@ -19,10 +19,13 @@ function showCostingIdea(element){
     page.style.zIndex = '10';
   }
 function closePage(){
+    document.getElementById('height').value = '';
+    document.getElementById('width').value = '';
     page.style.width = '0';
     page.style.opacity = '0';
     page.style.zIndex = '0';
     document.body.style.overflow = 'auto';
+    window.location.reload();
 }
 
 // Mapping of Bengali digits to English digits
