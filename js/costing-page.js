@@ -51,11 +51,11 @@ const bengaliToEnglishMap = {
   let height, width;
 
   function validateInput() {
-    const heightValue = document.getElementById('height').value;
-    const widthValue = document.getElementById('width').value;
+    const heightValue = document.getElementById('height').value.trim();
+    const widthValue = document.getElementById('width').value.trim();
     if(!isNaN(heightValue) && !isNaN(widthValue) && heightValue != '' && widthValue != ''){
       height = heightValue;
-      width = widthValue;
+      width = widthValue ;
 
       // Replace Bengali digits with English digits for height
       for (const key in bengaliToEnglishMap) {
@@ -69,7 +69,6 @@ const bengaliToEnglishMap = {
 
     calculateCost();
     }else{
-      console.log('wrong input!');
       errorPage.style.display = 'flex';
       popupContent.style.transform = 'scale(1)';
       popupContent.style.opacity = '1';
