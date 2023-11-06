@@ -11,6 +11,11 @@ const floor = document.getElementById('floor');
 const all = document.getElementById('all');
 const resultBtn = document.getElementById('result-btn');
 const resultBox = document.getElementById('result-box');
+const resultBoxColumn = document.querySelector('.result-box-column');
+
+const errorPage = document.querySelector('.error-popup');
+const popupContent = document.querySelector('.popup-content');
+
 function showCostingIdea(element){
     element.preventDefault();
     document.body.style.overflow = 'hidden';
@@ -48,21 +53,28 @@ const bengaliToEnglishMap = {
   function validateInput() {
     const heightValue = document.getElementById('height').value;
     const widthValue = document.getElementById('width').value;
-        height = heightValue;
-        width = widthValue;
+    if(!isNaN(heightValue) && !isNaN(widthValue) && heightValue != '' && widthValue != ''){
+      height = heightValue;
+      width = widthValue;
 
-        // Replace Bengali digits with English digits for height
-        for (const key in bengaliToEnglishMap) {
-            height = height.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
-        };
+      // Replace Bengali digits with English digits for height
+      for (const key in bengaliToEnglishMap) {
+        height = height.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
+    };
 
-         // Replace Bengali digits with English digits for widht
-         for (const key in bengaliToEnglishMap) {
-            width = width.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
-        };
+     // Replace Bengali digits with English digits for widht
+     for (const key in bengaliToEnglishMap) {
+        width = width.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
+    };
 
-        calculateCost();
+    calculateCost();
+    }else{
+      console.log('wrong input!');
+      errorPage.style.display = 'flex';
+      popupContent.style.transform = 'scale(1)';
+      popupContent.style.opacity = '1';
 
+    }
   };
 
 
@@ -103,8 +115,14 @@ const bengaliToEnglishMap = {
   }
 
   function showResult(){
-    resultBox.style.opacity = '1';
-    resultBox.style.height = '100%';
-    resultBox.style.transform = 'scale(1)';
+    resultBoxColumn.style.display = 'block';
+  }
 
+
+  // error handling
+
+  function closePopup(){
+    errorPage.style.display= 'none';
+    popupContent.style.transform = 'scale(0)';
+      popupContent.style.opacity = '0';
   }

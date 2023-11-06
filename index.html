@@ -99,35 +99,42 @@
       <div class="costing-idea" id="costing-idea">
         <button class="p-1 border-0 m-2 ps-3 pe-3 text-white rounded" id="home-btn" onclick="closePage()">হোম</button>
         <div class="container">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-md-10 text-center calculation-page flex-md-row">
-              <div class="calculation-box mt-5">
+          <div class="row justify-content-center mt-5 gap-2">
+
+            <div class="col-md-5 text-center calculation-page">
+              <div class="calculation-box">
                 <h4>নিচের বক্সে আপনার রুমের মাপ দিনঃ</h4>
                 <div class="input-box">
                   <label for="height">উচ্চতাঃ</label>
-                  <input type="text" name="height" placeholder="৯ ফুট" id="height">
+                  <input type="text" name="height" placeholder="৯ ফুট" id="height" required>
 
                   <label for="width" class="mt-3">চওড়াঃ</label>
                   <input type="text" name="width" placeholder="১২ ফুট" id="width">                 
                 </div>
-                <input type="button" value="খরচ দেখুন" id="result-btn">
-
-
-                <div class="box" id="result-box">
-                  <h2>আপনার রুমের খরচ সমূহঃ</h2>
-                  <ul>
-                    <li><span>১</span> এক দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="singleWall">১২০০০ টাকা।</p></li>
-                    <li><span>২</span> চারপাশের দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="allWall">১২০০০ টাকা।</p></li>
-                    <li><span>৩</span>সিলিং এ খরচ পড়বে <p style="display: inline-block; color: black;" id="celing">১২০০০ টাকা।</p></li>
-                    <li><span>৪</span>ফ্লোরে (মেঝে) খরচ পড়বে <p style="display: inline-block; color: black;" id="floor">১২০০০ টাকা।</p></li>
-                    <li><span>৫</span>দেয়াল, সিলিং এবং ফ্লোর(মেঝে) সহ মোট খরচ পড়বে <p style="display: inline-block; color: black;" id="all">১২০০০ টাকা।</p></li>
-                  </ul>
-                </div>
+                <input type="button" value="খরচ দেখুন" id="result-btn" required>
               </div>
-
-              
             </div> 
+
+            <div class="col-md-6 result-box-column">
+              <div class="box" id="result-box">
+                <h2>আপনার রুমের খরচ সমূহঃ</h2>
+                <ul>
+                  <li><span>১</span> এক দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="singleWall">১২০০০ টাকা।</p></li>
+                  <li><span>২</span> চারপাশের দেয়ালে খরচ পড়বে <p style="display: inline-block; color: black;" id="allWall">১২০০০ টাকা।</p></li>
+                  <li><span>৩</span>সিলিং এ খরচ পড়বে <p style="display: inline-block; color: black;" id="celing">১২০০০ টাকা।</p></li>
+                  <li><span>৪</span>ফ্লোরে (মেঝে) খরচ পড়বে <p style="display: inline-block; color: black;" id="floor">১২০০০ টাকা।</p></li>
+                  <li><span>৫</span>দেয়াল, সিলিং এবং ফ্লোর(মেঝে) সহ মোট খরচ পড়বে <p style="display: inline-block; color: black;" id="all">১২০০০ টাকা।</p></li>
+                </ul>
+              </div>
+            </div>
           </div> 
+          </div>
+
+          <div class="error-popup">
+            <div class="popup-content text-center rounded">
+              <p>দুঃখিত! ইনপুট বক্সে শুধু নাম্বার<br> দিয়ে “খরচ দেখুন” বাটনে ক্লিক করুন।</p>
+              <button class="close-popup border-0 pt-2 pb-2 ps-4 pe-4 text-light mt-3 rounded" onclick="closePopup()">ওকে</button>
+            </div>         
           </div>
         </div>
       </div>
