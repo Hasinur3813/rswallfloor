@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 const page = document.getElementById('costing-idea');
 const homeBtn = document.getElementById('home-btn');
 const wall = document.getElementById('singleWall');
