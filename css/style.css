@@ -938,9 +938,16 @@ h1{
 
 
 /* faq section */
+.faq-section p{
+    color: var(--black);
+}
+
 .accordion-button{
     background-image: linear-gradient(to left,#2e5bba, #ff669b );
     color:var(--white) !important;
+}
+.accordion-item{
+    margin-bottom: 2px !important;
 }
 
 button:focus:not(:focus-visible) {
@@ -952,6 +959,5 @@ button:focus:not(:focus-visible) {
     box-shadow:none !important;
 }
 .accordion-button::after {
-    background-image: none !important;
-    content: '>';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
 }
