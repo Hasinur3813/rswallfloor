@@ -51,7 +51,7 @@ h1{
     background: #25d366;
     padding: 10px;
     border-radius: 50%;
-    font-size:22px;
+    font-size:25px;
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -934,4 +934,24 @@ h1{
 }
 .openDesignPage a:hover i{
     transform: translateX(5px);
+}
+
+
+/* faq section */
+.accordion-button{
+    background-image: linear-gradient(to left,#2e5bba, #ff669b );
+    color:var(--white) !important;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none !important;
+}
+.accordion-button:focus {
+	z-index: 3;
+	border:none !important;
+    box-shadow:none !important;
+}
+.accordion-button::after {
+    background-image: none !important;
+    content: '>';
 }

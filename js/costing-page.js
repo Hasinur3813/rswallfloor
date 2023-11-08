@@ -47,11 +47,13 @@ const bengaliToEnglishMap = {
 
   resultBtn.addEventListener('click',validateInput);
   let height, width;
+  const validInputRegEx = /^[\d\u09E6-\u09EF]+$/;
 
   function validateInput() {
     const heightValue = document.getElementById('height').value.trim();
     const widthValue = document.getElementById('width').value.trim();
-    if(!isNaN(heightValue) && !isNaN(widthValue) && heightValue != '' && widthValue != ''){
+
+    if(validInputRegEx.test(heightValue) && validInputRegEx.test(widthValue)){
       height = heightValue;
       width = widthValue ;
 
@@ -123,3 +125,4 @@ const bengaliToEnglishMap = {
     popupContent.style.transform = 'scale(0)';
       popupContent.style.opacity = '0';
   }
+
