@@ -92,7 +92,7 @@ function removeDropdown() {
 let photoGallery = document.querySelector(".photo_gallery");
 const designSectionGallery = document.getElementById("design-section-gallery");
 
-let photoToRender = 20;
+let photoToRender = 18;
 
 function appendImages() {
   for (let i = 1; i <= photoToRender; i++) {
