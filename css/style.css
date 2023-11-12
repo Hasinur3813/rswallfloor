@@ -9,7 +9,6 @@
 }
 body{
     background: var(--white) !important;
-    overflow-x: hidden !important;
     overflow: hidden;
     font-family: 'adorshoLipi', Arial, sans-serif !important;
 }
