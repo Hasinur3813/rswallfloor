@@ -386,22 +386,3 @@ photoBtn.onclick = () => {
   videoGallery.style.display = "none";
   photoGallery.style.display = "flex";
 };
-
-// Call the appendImages function every second
-
-// function appendImages() {
-//     if (i <= photoToRender) {
-//         let div = document.createElement('div');
-//         div.classList.add('col-md-3', 'col-4', 'mb-3','thumbnail-box');
-//         let item = `<img src="./portfolio/thumbnail/thumbnail(${i}).jpg" onclick="openModal();currentSlide(${i})" alt="portfolio${i}.jpg" class="w-100 item">`;
-//         div.innerHTML = item;
-//         designSectionGallery.appendChild(div);
-
-//         i++; // Increment i to append the next item in the next iteration
-//     } else {
-//         clearInterval(interval); // Stop the interval when i reaches 51 (after 50 items)
-//         i = 1;
-//     }
-// };
-
-const inputElement = document.getElementById('width');
