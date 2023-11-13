@@ -101,7 +101,7 @@ function appendImages() {
     // adding classes for the div
     divForImageGallery.classList.add(
       "col-md-2",
-      "col-4",
+      "col-6",
       "mb-3",
       "thumbnail-box",
     );
@@ -125,7 +125,7 @@ function proccessDesignSection() {
     // adding classes for the div
     divForDesgnGallery.classList.add(
       "col-md-2",
-      "col-4",
+      "col-6",
       "mb-3",
       "design-thumbnail-box",
     );
