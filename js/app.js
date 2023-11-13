@@ -209,13 +209,17 @@ function plusSlide(n) {
   showSlide((slideIndex += n));
 }
 
+// store the image info here according the sections
 let storeDataImage = {};
 
+// images for the design section
 let designSection = {
   thumbnailBox: ".design-thumbnail-box",
   imageSource: "./design/design/design",
   imageAlt: "design",
 };
+
+// images for the portfolio section
 
 let portfolioSection = {
   thumbnailBox: ".thumbnail-box",
@@ -340,6 +344,7 @@ function apendVideo() {
 
 let videoCount = 0;
 
+// hide the loading animation when the videos are loaded
 function checkIfAllVideosLoaded() {
   const video = document.querySelectorAll("video");
   videoCount++;
@@ -350,39 +355,62 @@ function checkIfAllVideosLoaded() {
   }
 }
 
-const modalClose = (document.getElementById("video-modal-close").onclick =
-  () => {
-    videoModalBox.classList.remove("show_content");
-    modalVideo.pause();
-  });
+// Close the modal when the close button is clicked
+const modalClose = (document.getElementById("video-modal-close").onclick = () => {
+  videoModalBox.classList.remove("show_content");
+  modalVideo.pause();
+});
 
+// Get references to buttons and galleries
 const photoBtn = document.getElementById("photo");
 const videoBtn = document.getElementById("video");
 
+// Function to add video to the gallery
 function addVideoToGallery(item) {
+  // Highlight the selected button
   item.classList.add("btnBackground");
+
+  // Remove highlighting from the other button
   photoBtn.classList.remove("btnBackground");
+
+  // Hide photo gallery, display video gallery, and show its content
   photoGallery.style.display = "none";
   videoGallery.style.display = "flex";
   videoGallery.classList.add("show_content");
+
+  // Append videos to the video gallery
   apendVideo();
 }
 
+// Function to show a video in the modal when clicked
 function showVideoToModal(video) {
   video.forEach((vid) => {
     vid.addEventListener("click", () => {
+      // Get the source of the clicked video and set it for the modal video
       let vidSrc = vid.src;
       modalVideo.src = vidSrc;
+      
+      // Unmute the modal video
       modalVideo.muted = false;
+
+      // Show the modal content
       videoModalBox.classList.add("show_content");
     });
   });
 }
 
+// Handle click event for the photo button
 photoBtn.onclick = () => {
+  // Highlight the photo button
   photoBtn.classList.add("btnBackground");
+
+  // Remove highlighting from the video button
   videoBtn.classList.remove("btnBackground");
+
+  // Hide the video gallery
   videoGallery.classList.remove("show_content");
   videoGallery.style.display = "none";
+
+  // Show the photo gallery
   photoGallery.style.display = "flex";
 };

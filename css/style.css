@@ -758,7 +758,7 @@ h1{
     background-size: 400px;
     background-position: center;
     background-repeat: no-repeat;
-    z-index:99;
+    z-index:999;
     display: flex;
     justify-content: center;
     align-items: center;
