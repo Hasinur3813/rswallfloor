@@ -57,7 +57,9 @@ resultBtn.addEventListener('click', validateInput);
 let height, width;
 
 // Regular expression for valid input (English and Bengali digits)
-const validInputRegEx = /^[\d\u09E6-\u09EF]+$/;
+const validInputRegEx = /^[\d\u09E6-\u09EF.]+$/;
+const englishNumber = /^[\d.]+$/;
+
 
 // Function to validate input values
 function validateInput() {
@@ -70,7 +72,7 @@ function validateInput() {
 
         // Replace Bengali digits with English digits for height
         for (const key in bengaliToEnglishMap) {
-            height = height.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
+            height =  height.replace(new RegExp(key, 'g'), bengaliToEnglishMap[key]);
         };
 
         // Replace Bengali digits with English digits for width
@@ -115,11 +117,14 @@ function convertNumToBangla(englishNumber) {
 
 // Function to calculate and display cost
 function calculateCost() {
-    wall.innerHTML = convertNumToBangla(`${(width * height) * 140}`) + ' টাকা';
-    allWall.innerHTML = convertNumToBangla(`${((width * height) * 4) * 140}`) + ' টাকা';
-    celing.innerHTML = convertNumToBangla(`${(width * height) * 140}`) + ' টাকা';
-    floor.innerHTML = convertNumToBangla(`${(width * height) * 450}`) + ' টাকা';
-    all.innerHTML = convertNumToBangla(`${(((width * height) * 5) * 140) + ((width * height) * 450)}`) + ' টাকা';
+    const roundHeight = Math.round(height);;
+    const roundWidth = Math.round(width);;
+
+    wall.innerHTML = convertNumToBangla(`${(roundWidth * roundHeight) * 140}`) + ' টাকা';
+    allWall.innerHTML = convertNumToBangla(`${((roundWidth * roundHeight) * 4) * 140}`) + ' টাকা';
+    celing.innerHTML = convertNumToBangla(`${(roundWidth * roundHeight) * 140}`) + ' টাকা';
+    floor.innerHTML = convertNumToBangla(`${(roundWidth * roundHeight) * 450}`) + ' টাকা';
+    all.innerHTML = convertNumToBangla(`${(((roundWidth * roundHeight) * 5) * 140) + ((roundWidth * roundHeight) * 450)}`) + ' টাকা';
 
     showResult();
 }
